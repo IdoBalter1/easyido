@@ -7,7 +7,7 @@ import libraries
 
 
 # Set the correct password
-PASSWORD = "your_secure_password"
+PASSWORD = "mm"
 
 # Function to check password and set session state
 def authenticate(password):
