@@ -4,19 +4,7 @@ import StreamlitColumn as sc
 import StreamlitFoundations as sf
 import Home as h
 import libraries
-import streamlit as st 
-from fpdf import FPDF, XPos, YPos
-import requests
-import webbrowser
-import numpy as np
-import matplotlib.pyplot as plt
-from pdf2image import convert_from_path
-from libraries import uc_beams, ub_beams, padstones, load_data
-from libraries import choose_beam
-import math
-import subprocess
-import os
-import platform
+
 
 # Set the correct password
 PASSWORD = "your_secure_password"
