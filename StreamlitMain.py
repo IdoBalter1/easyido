@@ -1,4 +1,5 @@
 import streamlit as st 
+import sys
 from fpdf import FPDF, XPos, YPos
 import requests
 import webbrowser
@@ -7,10 +8,12 @@ import matplotlib.pyplot as plt
 from pdf2image import convert_from_path
 from libraries import uc_beams, ub_beams, padstones, load_data
 from libraries import choose_beam
+from PIL import Image
 import math
 import subprocess
 import os
 import platform
+
 
 
 def app():
@@ -22,6 +25,7 @@ def app():
     rev = st.session_state.get("rev", "")
     job_number = st.session_state.get("job_number", 0)
     date = st.session_state.get("date", "")
+    image = st.session_state.get("image", "")
     call_number = 1
 
     materials = ["Steel", "Timber", "Catnic", "Concrete"]
@@ -80,7 +84,7 @@ def app():
             """
             # Scale the image to width 50 mm and height 30 mm
             page_number = self.page_no()
-            #self.image("z:\Pdf's Adverts and Logo\logo.jpg", 10, 10, 50)
+            self.image(image, 10, 10, 50)
             self.set_y(25)
             self.set_font('Times', '', 11)
             num_cells = 2
@@ -533,7 +537,7 @@ def app():
             I_req_steel_format = None
 
         
-        st.write(f"Required I for steel: {np.ceil(I_req_steel / 10**4) if I_req_steel is not None else 'N/A'} 10^4 mm^4")
+        st.write(f"Required I for steel: {np.ceil(I_req_steel / 10**4) if I_req_steel is not None else 'N/A'} x 10^4 mm^4")
         I_steel = 0
         breadth_steel = st.number_input("What is the breadth of the steel (mm)?", min_value=0.0,value = None, key=f'breadth_steel_flitch_{call_number}',step = 0.00000000000000000000001)
         if breadth_steel is not None:
@@ -787,14 +791,17 @@ def app():
     else:
         None
         
+    pdf_file_path = f'{job_number}_{job_title}_Sheet_{sheet_number}.pdf'
+    pdf.output(pdf_file_path)
     finish = st.button("Finish")
     if finish:
-        pdf.output(f'{job_number} {job_title} Sheet{sheet_number} ')
-        pdf_file_path = os.path.abspath(f'{job_number} {job_title} Sheet{sheet_number} ')
-        chrome_command = ["start", "chrome", pdf_file_path]
-        subprocess.run(chrome_command, shell=True)
-    else:
-        None
+       with open(pdf_file_path, "rb") as pdf_file:
+        st.download_button(
+            label="Download PDF",
+            data=pdf_file,
+            file_name=os.path.basename(pdf_file_path),
+            mime="application/pdf"
+        )
 
     def reset_inputs():
         st.session_state.distributed_loads = []
@@ -807,4 +814,3 @@ def app():
         st.success("Inputs have been reset 😊.")
     else:
         None
-        
