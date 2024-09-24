@@ -32,6 +32,7 @@ def app():
     rev = st.session_state.get("rev", "")
     job_number = st.session_state.get("job_number", 0)
     date = st.session_state.get("date", "")
+    image = st.session_state.get("image", "")
 
     
     def get_inputs():
@@ -174,7 +175,7 @@ def app():
             """
             # Scale the image to width 50 mm and height 30 mm
             page_number = self.page_no()
-            #self.image("z:\Pdf's Adverts and Logo\logo.jpg", 10, 10, 50)
+            self.image(image, 10, 10, 50)
             self.set_y(25)
             self.set_font('Times', '', 11)
             num_cells = 2
@@ -237,14 +238,18 @@ def app():
     else:
         None
         
+    pdf_file_path = f'{job_number}_{job_title}_Sheet_{sheet_number}.pdf'
+    pdf.output(pdf_file_path)
     finish = st.button("Finish")
     if finish:
-        pdf.output(f'{job_number} {job_title} Sheet{sheet_number} ')
-        pdf_file_path = os.path.abspath(f'{job_number} {job_title} Sheet{sheet_number} ')
-        chrome_command = ["start", "chrome", pdf_file_path]
-        subprocess.run(chrome_command, shell=True)
-    else:
-        None
+       with open(pdf_file_path, "rb") as pdf_file:
+        st.download_button(
+            label="Download PDF",
+            data=pdf_file,
+            file_name=os.path.basename(pdf_file_path),
+            mime="application/pdf"
+        )
+
 
     def reset_inputs():
         st.session_state.distributed_loads = []
