@@ -25,7 +25,7 @@ def app():
     rev = st.session_state.get("rev", "")
     job_number = st.session_state.get("job_number", 0)
     date = st.session_state.get("date", "")
-    image = st.session_state.get("image", "")
+    image = st.session_state.get("image", "") or None
     call_number = 1
 
     materials = ["Steel", "Timber", "Catnic", "Concrete"]
@@ -84,7 +84,8 @@ def app():
             """
             # Scale the image to width 50 mm and height 30 mm
             page_number = self.page_no()
-            self.image(image, 10, 10, 50)
+            if image is not None:
+                self.image(image, 10, 10, 50)
             self.set_y(25)
             self.set_font('Times', '', 11)
             num_cells = 2
@@ -616,7 +617,11 @@ def app():
                     st.write(f"The Elastic section of selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3mm^3 and the necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
                     checkbox_shown = False
                 else:
-                    st.success("The selected timber meets the required criteria 😊.")
+                    st.success(f"""
+                    The second moment of the selected timber is {I_of_timber_no_format/10**4:.0f} x 10^4 mm^4, and the necessary value is {I_no_format/10**4:.0f} x 10^4 mm^4.
+
+                    The Elastic section of the selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3 mm^3, and the necessary value is {Elastic_no_format/10**3:.0f} x 10^3 mm^3.
+                    😊""")
                     
                 if not checkbox_shown:  # Only show the checkbox if the timber does not meet the criteria
                     fb_input = st.checkbox("Do you want to use a flitch beam?", value=False, key=f"flitch_beam_checkbox_{call_number}")
@@ -652,7 +657,11 @@ def app():
                     The Elastic section of the selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3 mm^3, but the necessary value is {Elastic_no_format/10**3:.0f} x 10^3 mm^3⚠️.
                     """)
                 else:
-                    st.success("The selected timber meets the required criteria 😊.")
+                    st.success(f"""
+                    The second moment of the selected timber is {I_of_timber_no_format/10**4:.0f} x 10^4 mm^4, and the necessary value is {I_no_format/10**4:.0f} x 10^4 mm^4.
+
+                    The Elastic section of the selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3 mm^3, and the necessary value is {Elastic_no_format/10**3:.0f} x 10^3 mm^3.
+                    😊""")
 
     elif material == 'Catnic':
         st.write(f"The total loading is{(total_loading*span+total_point_loading):.2f} kN:",)

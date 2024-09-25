@@ -2,11 +2,15 @@
 import streamlit as st
 from PIL import Image
 def app():
+    
     def get_inputs():
         st.header("Input Information")
         uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
+            st.session_state.image = image
+        else:
+            st.session_state.image = None
         job_title = st.text_input("Job Title", value="")
         initials = st.text_input("Initials", value="MM").upper()  # Convert initials to uppercase
         item = st.text_input("Item", value="Structural Calculations")
@@ -22,7 +26,6 @@ def app():
             st.session_state.rev = rev
             st.session_state.job_number = job_number
             st.session_state.date = date
-            st.session_state.image = image
             st.success("Inputs saved! 😊")
 
     # Call the function to get inputs

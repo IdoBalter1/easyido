@@ -20,7 +20,7 @@ def app():
     rev = st.session_state.get("rev", "")
     job_number = st.session_state.get("job_number", 0)
     date = st.session_state.get("date", "")
-    image = st.session_state.get("image", "")
+    image = st.session_state.get("image", "") or None
     material = 'foundation'
     def get_inputs():
         title_of_work = st.text_input("Enter the title of the work", value="Foundations Calculation")
@@ -66,7 +66,8 @@ def app():
             """
             # Scale the image to width 50 mm and height 30 mm
             page_number = self.page_no()
-            self.image(image, 10, 10, 50)
+            if image is not None:
+                self.image(image, 10, 10, 50)
             self.set_y(25)
             self.set_font('Times', '', 11)
             num_cells = 2
