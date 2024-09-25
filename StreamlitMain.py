@@ -141,11 +141,13 @@ def app():
             padstone_input = False
             strength = None
 
+
         return span, effective_length, padstone_input, strength ,material,self_weight_safety_factor, self_weight
 
     # Now, call get_user_input() to gather other inputs, and manage loads with the session state
     span, effective_length, padstone_input, strength, material,self_weight_safety_factor, self_weight = get_user_input()
-
+    if material == 'Timber': 
+        floor_checkbox = st.checkbox("Is this a Floor Calculation? ",value = False)
     # Initialize session state
     if "distributed_loads" not in st.session_state:
         st.session_state.distributed_loads = []
@@ -576,52 +578,81 @@ def app():
 
 
     if material == 'Timber':
-        number_of_timbers = st.number_input("Number of timbers", min_value=1, value=1, step=0,key = f'num_timbers_calc_{call_number}')            
-        if number_of_timbers == 1:
-            E = 7.2 * 10**9
-        elif number_of_timbers == 2:
-            E = 8.208 * 10**9
-        elif number_of_timbers == 3:
-            E = 9 * 10**9
-        elif number_of_timbers>3:
-            E = 10.8 * 10**9
-        I_no_format = (5 * w_equiv * 10**3 * span**4 * 360*10**12 / (384 * E * span))
-        Elastic_no_format = (max_bending_moment*10**3/(7.5*10**6))*10**9
-        st.write(f"The necessary second moment of area is {I_no_format/10**4:.0f} x 10^4 mm^4")
-        st.write(f"The Elastic section necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
-        breadth_steel = None  
-        
-        breadth_timber = st.number_input(f"Enter the timber breadth (mm)", min_value=0.0,value = None, key=f'timber_breadth_calc_{call_number}',step = 0.00000000000000000000001)
-        if breadth_timber is not None:
-            breadth_timber = round(breadth_timber)
-        depth_timber = st.number_input(f"Enter the timber depth (mm)", min_value=0.0,value = None, key=f'timber_depth_calc_{call_number}',step = 0.00000000000000000000001)
-        if depth_timber is not None:
-            depth_timber = round(depth_timber)
-        if breadth_timber is not None and depth_timber is not None and breadth_timber > 0 and depth_timber > 0:
-            I_of_timber_no_format = (number_of_timbers * breadth_timber * depth_timber**3) / 12
-            Elastic_section_of_timber_no_format = (number_of_timbers * breadth_timber * depth_timber**2) / 6
-            call_number += 1
-        else:
-            I_of_timber_no_format = None
-            Elastic_section_of_timber_no_format = None
-
-        
-        checkbox_shown = True
-        if I_of_timber_no_format is not None and Elastic_section_of_timber_no_format is not None:
-            if I_of_timber_no_format<I_no_format or Elastic_section_of_timber_no_format<Elastic_no_format:
-                st.write(f"The second moment of selected timber is {I_of_timber_no_format/10**4:.0f} x 10^4 mm^4 and the necessary is {I_no_format/10**4:.0f} x 10^4 mm^4")
-                st.write(f"The Elastic section of selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3mm^3 and the necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
-                checkbox_shown = False
-            else:
-                st.success("The selected timber meets the required criteria 😊.")
-                
-            if not checkbox_shown:  # Only show the checkbox if the timber does not meet the criteria
-                fb_input = st.checkbox("Do you want to use a flitch beam?", value=False, key=f"flitch_beam_checkbox_{call_number}")
-                if fb_input:
-                    I_req_steel, I_tot_timber, I_steel, breadth_timber, depth_timber, breadth_steel, depth_steel, number_of_timbers = flitch_beam(w_equiv, span, breadth_timber, depth_timber, call_number)
-                    
+        if not floor_checkbox:
+            number_of_timbers = st.number_input("Number of timbers", min_value=1, value=1, step=0,key = f'num_timbers_calc_{call_number}')            
+            if number_of_timbers == 1:
+                E = 7.2 * 10**9
+            elif number_of_timbers == 2:
+                E = 8.208 * 10**9
+            elif number_of_timbers == 3:
+                E = 9 * 10**9
+            elif number_of_timbers>3:
+                E = 10.8 * 10**9
+            I_no_format = (5 * w_equiv * 10**3 * span**4 * 360*10**12 / (384 * E * span))
+            Elastic_no_format = (max_bending_moment*10**3/(7.5*10**6))*10**9
+            st.write(f"The necessary second moment of area is {I_no_format/10**4:.0f} x 10^4 mm^4")
+            st.write(f"The Elastic section necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
+            breadth_steel = None  
             
- 
+            breadth_timber = st.number_input(f"Enter the timber breadth (mm)", min_value=0.0,value = None, key=f'timber_breadth_calc_{call_number}',step = 0.00000000000000000000001)
+            if breadth_timber is not None:
+                breadth_timber = round(breadth_timber)
+            depth_timber = st.number_input(f"Enter the timber depth (mm)", min_value=0.0,value = None, key=f'timber_depth_calc_{call_number}',step = 0.00000000000000000000001)
+            if depth_timber is not None:
+                depth_timber = round(depth_timber)
+            if breadth_timber is not None and depth_timber is not None and breadth_timber > 0 and depth_timber > 0:
+                I_of_timber_no_format = (number_of_timbers * breadth_timber * depth_timber**3) / 12
+                Elastic_section_of_timber_no_format = (number_of_timbers * breadth_timber * depth_timber**2) / 6
+                call_number += 1
+            else:
+                I_of_timber_no_format = None
+                Elastic_section_of_timber_no_format = None
+
+            
+            checkbox_shown = True
+            if I_of_timber_no_format is not None and Elastic_section_of_timber_no_format is not None:
+                if I_of_timber_no_format<I_no_format or Elastic_section_of_timber_no_format<Elastic_no_format:
+                    st.write(f"The second moment of selected timber is {I_of_timber_no_format/10**4:.0f} x 10^4 mm^4 and the necessary is {I_no_format/10**4:.0f} x 10^4 mm^4")
+                    st.write(f"The Elastic section of selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3mm^3 and the necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
+                    checkbox_shown = False
+                else:
+                    st.success("The selected timber meets the required criteria 😊.")
+                    
+                if not checkbox_shown:  # Only show the checkbox if the timber does not meet the criteria
+                    fb_input = st.checkbox("Do you want to use a flitch beam?", value=False, key=f"flitch_beam_checkbox_{call_number}")
+                    if fb_input:
+                        I_req_steel, I_tot_timber, I_steel, breadth_timber, depth_timber, breadth_steel, depth_steel, number_of_timbers = flitch_beam(w_equiv, span, breadth_timber, depth_timber, call_number)
+        else:
+            E = 10.8* 10**9
+            I_no_format = (5 * w_equiv * 10**3 * span**4 * 360*10**12 / (384 * E * span))
+            Elastic_no_format = (max_bending_moment*10**3/(7.5*10**6))*10**9
+            st.write(f"The necessary second moment of area is {I_no_format/10**4:.0f} x 10^4 mm^4")
+            st.write(f"The Elastic section necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
+            breadth_steel = None  
+            breadth_timber = st.number_input(f"Enter the timber breadth (mm)", min_value=0.0,value = None, key=f'timber_breadth_calc_{call_number}',step = 0.00000000000000000000001)
+            if breadth_timber is not None:
+                breadth_timber = round(breadth_timber)
+            depth_timber = st.number_input(f"Enter the timber depth (mm)", min_value=0.0,value = None, key=f'timber_depth_calc_{call_number}',step = 0.00000000000000000000001)
+            if depth_timber is not None:
+                depth_timber = round(depth_timber)
+            if breadth_timber is not None and depth_timber is not None and breadth_timber > 0 and depth_timber > 0:
+                I_of_timber_no_format = ( breadth_timber * depth_timber**3) / 12
+                Elastic_section_of_timber_no_format = (  breadth_timber * depth_timber**2) / 6
+                call_number += 1
+            else:
+                I_of_timber_no_format = None
+                Elastic_section_of_timber_no_format = None
+            if I_of_timber_no_format is not None and Elastic_section_of_timber_no_format is not None:
+                if I_of_timber_no_format<I_no_format or Elastic_section_of_timber_no_format<Elastic_no_format:
+                    st.warning(f"""
+                    **Warning: Timber Selection**
+
+                    The second moment of the selected timber is {I_of_timber_no_format/10**4:.0f} x 10^4 mm^4, but the necessary value is {I_no_format/10**4:.0f} x 10^4 mm^4.
+
+                    The Elastic section of the selected timber is {Elastic_section_of_timber_no_format/10**3:.0f} x 10^3 mm^3, but the necessary value is {Elastic_no_format/10**3:.0f} x 10^3 mm^3⚠️.
+                    """)
+                else:
+                    st.success("The selected timber meets the required criteria 😊.")
 
     elif material == 'Catnic':
         st.write(f"The total loading is{(total_loading*span+total_point_loading):.2f} kN:",)
@@ -764,8 +795,12 @@ def app():
             pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.0f} x10^4 mm^4', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f'Elastic Section Modulus required = {Elastic_section:.1f} x10^3 mm^3', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B', 18)
-            pdf.cell(0,10,f'Use {number_of_timbers}No. {breadth_timber}x{depth_timber}mm C24 timber', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
-            pdf.set_font('Times', '', 11)
+            if floor_checkbox == False:
+                pdf.cell(0,10,f'Use {number_of_timbers}No. {breadth_timber}x{depth_timber}mm C24 timber', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
+                pdf.set_font('Times', '', 11)
+            else:
+                pdf.cell(0,10,f'Provide {breadth_timber}x{depth_timber}mm C24 timber joists at {load['distance']*10**3} mm spacing',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
+                pdf.set_font('Times', '', 11)
             pdf.cell(0,10,f"The Second moment of area of the timber is {I_of_timber:.0f}  x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"The Elastic Section modulus of timber is {Elastic_section_of_timber:.1f} x10^3 mm^3",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             current_y = pdf.get_y()
