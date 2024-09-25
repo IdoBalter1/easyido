@@ -586,9 +586,9 @@ def app():
             elif number_of_timbers == 2:
                 E = 8.208 * 10**9
             elif number_of_timbers == 3:
-                E = 9 * 10**9
+                E = 8.712 * 10**9
             elif number_of_timbers>3:
-                E = 10.8 * 10**9
+                E = 8.928 * 10**9
             I_no_format = (5 * w_equiv * 10**3 * span**4 *10**12 / (384 * E *span*0.003))
             Elastic_no_format = (max_bending_moment*10**3/(7.5*10**6))*10**9
             st.write(f"The necessary second moment of area is {I_no_format/10**4:.0f} x 10^4 mm^4")
@@ -808,7 +808,9 @@ def app():
                 pdf.cell(0,10,f'Use {number_of_timbers}No. {breadth_timber}x{depth_timber}mm C24 timber', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
                 pdf.set_font('Times', '', 11)
             else:
-                pdf.cell(0,10,f'Provide {breadth_timber}x{depth_timber}mm C24 timber joists at {load['distance']*10**3} mm spacing',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
+                distance = (load['distance'])*1000
+                rounded_distance = round(distance)
+                pdf.cell(0,10,f'Provide {breadth_timber}x{depth_timber}mm C24 timber joists at {(rounded_distance)} mm spacing',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
                 pdf.set_font('Times', '', 11)
             pdf.cell(0,10,f"The Second moment of area of the timber is {I_of_timber:.0f}  x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"The Elastic Section modulus of timber is {Elastic_section_of_timber:.1f} x10^3 mm^3",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
