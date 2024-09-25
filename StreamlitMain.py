@@ -544,7 +544,7 @@ def app():
     def flitch_beam(w_equiv, span,breadth_timber,depth_timber,call_number):
         
  
-        I_no_format = (5 * w_equiv * 10**3 * span**4 * 360*10**12 / (384 * 8.208 * 10**9 * span))
+        I_no_format = (5 * w_equiv * 10**3 * span**4 *10**12 / (384 * 8.208*10**9 *span*0.003))
         breadth = breadth_timber
         depth = depth_timber
         number_of_timbers = 2
@@ -589,7 +589,7 @@ def app():
                 E = 9 * 10**9
             elif number_of_timbers>3:
                 E = 10.8 * 10**9
-            I_no_format = (5 * w_equiv * 10**3 * span**4 * 360*10**12 / (384 * E * span))
+            I_no_format = (5 * w_equiv * 10**3 * span**4 *10**12 / (384 * E *span*0.003))
             Elastic_no_format = (max_bending_moment*10**3/(7.5*10**6))*10**9
             st.write(f"The necessary second moment of area is {I_no_format/10**4:.0f} x 10^4 mm^4")
             st.write(f"The Elastic section necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
@@ -629,7 +629,7 @@ def app():
                         I_req_steel, I_tot_timber, I_steel, breadth_timber, depth_timber, breadth_steel, depth_steel, number_of_timbers = flitch_beam(w_equiv, span, breadth_timber, depth_timber, call_number)
         else:
             E = 10.8* 10**9
-            I_no_format = (5 * w_equiv * 10**3 * span**4 * 360*10**12 / (384 * E * span))
+            I_no_format = (5 * w_equiv * 10**3 * span**4 *10**12 / (384 * E *span*0.003))
             Elastic_no_format = (max_bending_moment*10**3/(7.5*10**6))*10**9
             st.write(f"The necessary second moment of area is {I_no_format/10**4:.0f} x 10^4 mm^4")
             st.write(f"The Elastic section necessary is {Elastic_no_format/10**3:.0f} x 10^3 mm^3 ")
