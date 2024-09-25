@@ -737,7 +737,7 @@ def app():
                 st.success(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 😊")
             
 
-            pdf.cell(0, 10, f'Padstone Area = {round(padstone_area)} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0, 10, f'Padstone Area Required = {round(padstone_area)} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B',18)
             pdf.cell(0, 10, f'Use {description}', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', '', 11)
