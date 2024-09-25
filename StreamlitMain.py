@@ -120,16 +120,20 @@ def app():
 
 
         if material == "Steel":
-            effective_length_factor = st.number_input("Enter the effective length factor:", min_value=0.0,step = 0.00000000000000000000001)
+            effective_length_factor = st.number_input("Enter the effective length factor:", min_value=0.0,value =1.2, step = 0.00000000000000000000001)
             effective_length_factor = round(effective_length_factor, 3)
+            self_weight = st.number_input("Enter the self-weight:", min_value=0.0,value =0.4, step = 0.00000000000000000000001)
+            self_weight_safety_factor = 1.4
             effective_length = span * effective_length_factor
         else:
             effective_length = None
+            self_weight = None
+            self_weight_safety_factor = None
 
         if material == "Steel":
             padstone_input = st.checkbox("Do you want a padstone calculation?")
             if padstone_input:
-                strength = st.number_input("What is the strength of the material for padstone (N/mm^2)?", min_value=0.0,step = 0.00000000000000000000001)
+                strength = st.number_input("What is the strength of the material for padstone (N/mm^2)?", min_value=0.0,value = 3.5,step = 0.00000000000000000000001)
                 strength = round(strength,2)
             else:
                 strength = None
@@ -137,10 +141,10 @@ def app():
             padstone_input = False
             strength = None
 
-        return span, effective_length, padstone_input, strength ,material
+        return span, effective_length, padstone_input, strength ,material,self_weight_safety_factor, self_weight
 
     # Now, call get_user_input() to gather other inputs, and manage loads with the session state
-    span, effective_length, padstone_input, strength, material = get_user_input()
+    span, effective_length, padstone_input, strength, material,self_weight_safety_factor, self_weight = get_user_input()
 
     # Initialize session state
     if "distributed_loads" not in st.session_state:
@@ -209,6 +213,20 @@ def app():
                 "-",                 # No factored point load
                 f"{total_loading:.2f}",     # Total distributed load
                 f"{factored_loading:.2f}"   # Factored distributed load
+            ])
+            
+        if self_weight is not None:
+            total_self_weight_loading = self_weight * 1  # Distributed load over 1m
+            factored_self_weight_loading = total_self_weight_loading * 1.4  # Apply the safety factor
+
+            loadings.append([
+                "Self-weight",        # Load type
+                f"{self_weight:.2f}",  # Magnitude of the self-weight
+                "1.00",               # Distance is 1 meter for self-weight
+                "-",                  # No point load for self-weight
+                "-",                  # No factored point load
+                f"{total_self_weight_loading:.2f}",  # Total distributed load for self-weight
+                f"{factored_self_weight_loading:.2f}"  # Factored distributed load for self-weight
             ])
 
         # Add point loads to the table
@@ -709,15 +727,21 @@ def app():
             padstone_area = max(reactions)*1.5*10**3*3.5/(1.5*strength)
             st.write(f"**minimum area is {np.ceil(padstone_area)} mm^2**")
             area = 0
-        
+            description = 'Unkown Description'
             if area<padstone_area:
                 area, description = choose_padstone()
+                
+            if area<padstone_area:
+                st.warning(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 ⚠️")
+            else:
+                st.success(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 😊")
+            
 
-            pdf.cell(0, 10, f'Padstone Area = {padstone_area:.2f} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0, 10, f'Padstone Area = {round(padstone_area)} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B',18)
             pdf.cell(0, 10, f'Use {description}', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', '', 11)
-            pdf.cell(0, 10, f'Area of Padstone Chosen = {area:.2f} > {padstone_area:.2f} ', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0, 10, f'Area of Padstone Chosen = {round(area)} > {round(padstone_area)} ', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         else:
             None
         
@@ -761,7 +785,7 @@ def app():
             I_steel_format = I_steel/10**4
             pdf.cell(0, 10, f"Maximum Unfactored Moment = {max_bending_moment:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
             pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.0f} x10^4 mm^4', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.cell(0,10,f"The I of the timber is {I_of_timber:.0f}  x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f"The I of the timber is {I_of_timber:.0f} x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"ADD PLATE",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'C')
             pdf.cell(0,10,f"The Required Second Moment of Area of the Steel is {I_req_steel_format:.0f} x10^4 mm^4",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"The Second moment of Area of the Steel is {I_steel_format:.0f} x10^4 mm^4",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
@@ -814,3 +838,5 @@ def app():
         st.success("Inputs have been reset 😊.")
     else:
         None
+
+
