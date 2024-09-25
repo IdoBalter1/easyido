@@ -541,10 +541,10 @@ def app():
         I_steel = 0
         breadth_steel = st.number_input("What is the breadth of the steel (mm)?", min_value=0.0,value = None, key=f'breadth_steel_flitch_{call_number}',step = 0.00000000000000000000001)
         if breadth_steel is not None:
-            breadth_steel = round(breadth_steel,2)
+            breadth_steel = round(breadth_steel)
         depth_steel = st.number_input("What is the depth of the steel (mm)?", min_value=0.0,value = None, key=f'depth_steel_flitch_{call_number}',step = 0.00000000000000000000001)
         if depth_steel is not None:
-            depth_steel = round(depth_steel,2)
+            depth_steel = round(depth_steel)
         if  depth_steel is not None and breadth_steel is not None :
             I_steel = breadth_steel*depth_steel**3/12
             I_steel_format = I_steel/10**4
