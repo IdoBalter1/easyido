@@ -1899,6 +1899,7 @@ CHS_Reactions = {
     },
     "88.9x6.3": {
         "Description": "88.9x6.3 CHS",
+        "width":0.045,
         "Moment": 15.3,
         "Buckling Lengths and Reactions": {
             1.0: 544,
@@ -1922,6 +1923,7 @@ CHS_Reactions = {
     },
     "88.9x10": {
         "Description": "88.9x10 CHS",
+        "width":0.045,
         "Moment": 22.2,
         "Buckling Lengths and Reactions": {
             1.0: 823,
@@ -1994,6 +1996,7 @@ CHS_Reactions = {
     "114.3x10": {
         "Description": "114.3x10mm CHS",
         "Moment": 38.7,
+        "width":0.057,
         "Buckling Lengths and Reactions": {
             1.0: 1120,
             1.5: 1060,
@@ -2016,6 +2019,7 @@ CHS_Reactions = {
     },
     "139.7x5": {
         "Description": "139.7x5mm CHS",
+        "width":0.070,
         "Moment": 32.2,
         "Buckling Lengths and Reactions": {
             1.0: 740,
@@ -2063,6 +2067,7 @@ CHS_Reactions = {
     },
      "139.7x8": {
         "Description": "139.7x8mm CHS",
+        "width":0.070,
         "Moment": 49.3,
         "Buckling Lengths and Reactions": {
             1.0: 1150,
