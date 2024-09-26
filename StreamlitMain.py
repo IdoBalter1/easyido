@@ -768,14 +768,15 @@ def app():
             st.write(f"**minimum area is {np.ceil(padstone_area)} mm^2**")
             area = 0
             description = 'Unkown Description'
-            if area<padstone_area:
-                area, description = choose_padstone()
+            if area is not None and padstone_area is not None:
+                if area<padstone_area:
+                    area, description = choose_padstone()
+                    
+                if area<padstone_area:
+                    st.warning(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 ⚠️")
+                else:
+                    st.success(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 😊")
                 
-            if area<padstone_area:
-                st.warning(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 ⚠️")
-            else:
-                st.success(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 😊")
-            
 
             pdf.cell(0, 10, f'Padstone Area Required = {round(padstone_area)} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B',18)
