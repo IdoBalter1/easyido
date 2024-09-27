@@ -19,7 +19,7 @@ import platform
 def app():
     
     
-    job_title = st.session_state.get("job_title", "Harleydene Sandgate Lane Storrington")
+    job_title = st.session_state.get("job_title", "")
     initials = st.session_state.get("initials", "MM").upper()
     item = st.session_state.get("item", "Structural Calculations")
     rev = st.session_state.get("rev", "")
