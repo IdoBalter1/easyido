@@ -1248,6 +1248,150 @@ ub_beams = {
 }
 
 PFC_beams = {
+        "430x100x64": {
+        "Second moment of area": 21900,
+        "Data": [
+            {"Effective length": 1, "Moment": 324},
+            {"Effective length": 1.5, "Moment": 300},
+            {"Effective length": 2, "Moment": 264},
+            {"Effective length": 2.5, "Moment": 231},
+            {"Effective length": 3, "Moment": 203},
+            {"Effective length": 3.5, "Moment": 179},
+            {"Effective length": 4, "Moment": 159},
+            {"Effective length": 4.5, "Moment": 143},
+            {"Effective length": 5, "Moment": 130},
+            {"Effective length": 5.5, "Moment": 119},
+            {"Effective length": 6, "Moment": 110},
+            {"Effective length": 6.5, "Moment": 102},
+            {"Effective length": 7, "Moment": 95.2},
+        ]
+    },
+    "380x100x54": {
+        "Second moment of area": 15000,
+        "Data": [
+            {"Effective length": 1, "Moment": 247},
+            {"Effective length": 1.5, "Moment": 230},
+            {"Effective length": 2, "Moment": 204},
+            {"Effective length": 2.5, "Moment": 180},
+            {"Effective length": 3, "Moment": 158},
+            {"Effective length": 3.5, "Moment": 140},
+            {"Effective length": 4, "Moment": 125},
+            {"Effective length": 4.5, "Moment": 113},
+            {"Effective length": 5, "Moment": 103},
+            {"Effective length": 5.5, "Moment": 94.4},
+            {"Effective length": 6, "Moment": 87.2},
+            {"Effective length": 6.5, "Moment": 81.1},
+            {"Effective length": 7, "Moment": 75.8},
+        ]
+    },
+    "300x100x46": {
+        "Second moment of area": 8230,
+        "Data": [
+            {"Effective length": 1, "Moment": 170},
+            {"Effective length": 1.5, "Moment": 160},
+            {"Effective length": 2, "Moment": 144},
+            {"Effective length": 2.5, "Moment": 129},
+            {"Effective length": 3, "Moment": 116},
+            {"Effective length": 3.5, "Moment": 104},
+            {"Effective length": 4, "Moment": 94.9},
+            {"Effective length": 4.5, "Moment": 86.8},
+            {"Effective length": 5, "Moment": 79.9},
+            {"Effective length": 5.5, "Moment": 74.0},
+            {"Effective length": 6, "Moment": 68.9},
+            {"Effective length": 6.5, "Moment": 64.5},
+            {"Effective length": 7, "Moment": 60.6},
+        ]
+    },
+    "300x90x41": {
+        "Second moment of area": 7220,
+        "Data": [
+            {"Effective length": 1, "Moment": 156},
+            {"Effective length": 1.5, "Moment": 140},
+            {"Effective length": 2, "Moment": 123},
+            {"Effective length": 2.5, "Moment": 108},
+            {"Effective length": 3, "Moment": 95.3},
+            {"Effective length": 3.5, "Moment": 84.7},
+            {"Effective length": 4, "Moment": 76.1},
+            {"Effective length": 4.5, "Moment": 69.0},
+            {"Effective length": 5, "Moment": 63.1},
+            {"Effective length": 5.5, "Moment": 58.1},
+            {"Effective length": 6, "Moment": 53.9},
+            {"Effective length": 6.5, "Moment": 50.2},
+            {"Effective length": 7, "Moment": 47.1},
+        ]
+    },
+    "260x90x35": {
+        "Second moment of area": 4730,
+        "Data": [
+            {"Effective length": 1, "Moment": 117},
+            {"Effective length": 1.5, "Moment": 106},
+            {"Effective length": 2, "Moment": 93.4},
+            {"Effective length": 2.5, "Moment": 82.4},
+            {"Effective length": 3, "Moment": 73.1},
+            {"Effective length": 3.5, "Moment": 65.4},
+            {"Effective length": 4, "Moment": 58.9},
+            {"Effective length": 4.5, "Moment": 53.6},
+            {"Effective length": 5, "Moment": 49.2},
+            {"Effective length": 5.5, "Moment": 45.4},
+            {"Effective length": 6, "Moment": 42.2},
+            {"Effective length": 6.5, "Moment": 39.4},
+            {"Effective length": 7, "Moment": 37.0},
+        ]
+    },
+    "260x75x28": {
+        "Second moment of area": 3620,
+        "Data": [
+            {"Effective length": 1, "Moment": 86.9},
+            {"Effective length": 1.5, "Moment": 74.1},
+            {"Effective length": 2, "Moment": 62.5},
+            {"Effective length": 2.5, "Moment": 53.0},
+            {"Effective length": 3, "Moment": 45.6},
+            {"Effective length": 3.5, "Moment": 39.9},
+            {"Effective length": 4, "Moment": 35.4},
+            {"Effective length": 4.5, "Moment": 31.8},
+            {"Effective length": 5, "Moment": 28.9},
+            {"Effective length": 5.5, "Moment": 26.5},
+            {"Effective length": 6, "Moment": 24.5},
+            {"Effective length": 6.5, "Moment": 22.8},
+            {"Effective length": 7, "Moment": 0},
+        ]
+    },
+    "230x90x32": {
+        "Second moment of area": 3520,
+        "Data": [
+            {"Effective length": 1, "Moment": 97.6},
+            {"Effective length": 1.5, "Moment": 89.3},
+            {"Effective length": 2, "Moment": 79.7},
+            {"Effective length": 2.5, "Moment": 71.3},
+            {"Effective length": 3, "Moment": 64.0},
+            {"Effective length": 3.5, "Moment": 57.9},
+            {"Effective length": 4, "Moment": 52.7},
+            {"Effective length": 4.5, "Moment": 48.3},
+            {"Effective length": 5, "Moment": 44.5},
+            {"Effective length": 5.5, "Moment": 41.3},
+            {"Effective length": 6, "Moment": 38.5},
+            {"Effective length": 6.5, "Moment": 36.1},
+            {"Effective length": 7, "Moment": 34.0},
+        ]
+    },
+    "230x75x26": {
+        "Second moment of area": 2750,
+        "Data": [
+            {"Effective length": 1, "Moment": 74.4},
+            {"Effective length": 1.5, "Moment": 64.2},
+            {"Effective length": 2, "Moment": 55.2},
+            {"Effective length": 2.5, "Moment": 47.7},
+            {"Effective length": 3, "Moment": 41.7},
+            {"Effective length": 3.5, "Moment": 36.9},
+            {"Effective length": 4, "Moment": 33.1},
+            {"Effective length": 4.5, "Moment": 30.0},
+            {"Effective length": 5, "Moment": 27.4},
+            {"Effective length": 5.5, "Moment": 25.3},
+            {"Effective length": 6, "Moment": 23.4},
+            {"Effective length": 6.5, "Moment": 21.9},
+            {"Effective length": 7, "Moment": 20.5},
+        ]
+    },
     "200x90x30": {
         "Second moment of area": 2520,
         "Data": [
