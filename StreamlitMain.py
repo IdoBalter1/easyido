@@ -738,7 +738,7 @@ def app():
                 st.success("The Beam matches the requirement 😊")
 
 
-        if choice1 == 'UC' or choice1 == 'UB' or choice1 == 'OTHER':
+        if choice1 == 'UC' or choice1 == 'UB' or choice1 == 'OTHER' or choice1 == 'PFC':
             pdf.cell(0, 10, f"Maximum Factored Moment = {moment_safety_factor:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
             pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B', 18)

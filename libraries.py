@@ -1247,6 +1247,154 @@ ub_beams = {
     }
 }
 
+PFC_beams = {
+    "200x90x30": {
+        "Second moment of area": 2520,
+        "Data": [
+            {"Effective length": 1, "Moment": 80.1},
+            {"Effective length": 1.5, "Moment": 74.4},
+            {"Effective length": 2, "Moment": 67.2},
+            {"Effective length": 2.5, "Moment": 61.0},
+            {"Effective length": 3, "Moment": 55.5},
+            {"Effective length": 3.5, "Moment": 50.8},
+            {"Effective length": 4, "Moment": 46.7},
+            {"Effective length": 4.5, "Moment": 43.2},
+            {"Effective length": 5, "Moment": 40.1},
+            {"Effective length": 5.5, "Moment": 37.4},
+            {"Effective length": 6, "Moment": 35.1},
+            {"Effective length": 6.5, "Moment": 33.0},
+            {"Effective length": 7, "Moment": 31.2},
+        ]
+    },
+    "200x75x23": {
+        "Second moment of area": 1960,
+        "Data": [
+            {"Effective length": 1, "Moment": 61.1},
+            {"Effective length": 1.5, "Moment": 53.4},
+            {"Effective length": 2, "Moment": 46.7},
+            {"Effective length": 2.5, "Moment": 41.0},
+            {"Effective length": 3, "Moment": 36.4},
+            {"Effective length": 3.5, "Moment": 32.6},
+            {"Effective length": 4, "Moment": 29.5},
+            {"Effective length": 4.5, "Moment": 27.0},
+            {"Effective length": 5, "Moment": 24.8},
+            {"Effective length": 5.5, "Moment": 23.0},
+            {"Effective length": 6, "Moment": 21.4},
+            {"Effective length": 6.5, "Moment": 20.0},
+            {"Effective length": 7, "Moment": 18.8},
+        ]
+    },
+    "180x90x26": {
+        "Second moment of area": 1820,
+        "Data": [
+            {"Effective length": 1, "Moment": 63.8},
+            {"Effective length": 1.5, "Moment": 59.5},
+            {"Effective length": 2, "Moment": 53.8},
+            {"Effective length": 2.5, "Moment": 48.9},
+            {"Effective length": 3, "Moment": 44.6},
+            {"Effective length": 3.5, "Moment": 40.9},
+            {"Effective length": 4, "Moment": 37.6},
+            {"Effective length": 4.5, "Moment": 34.8},
+            {"Effective length": 5, "Moment": 32.4},
+            {"Effective length": 5.5, "Moment": 30.3},
+            {"Effective length": 6, "Moment": 28.4},
+            {"Effective length": 6.5, "Moment": 26.7},
+            {"Effective length": 7, "Moment": 25.2},
+        ]
+    },
+    "180x75x20": {
+        "Second moment of area": 1370,
+        "Data": [
+            {"Effective length": 1, "Moment": 47.5},
+            {"Effective length": 1.5, "Moment": 41.4},
+            {"Effective length": 2, "Moment": 36.2},
+            {"Effective length": 2.5, "Moment": 31.7},
+            {"Effective length": 3, "Moment": 28.1},
+            {"Effective length": 3.5, "Moment": 25.2},
+            {"Effective length": 4, "Moment": 22.7},
+            {"Effective length": 4.5, "Moment": 20.7},
+            {"Effective length": 5, "Moment": 19.1},
+            {"Effective length": 5.5, "Moment": 17.6},
+            {"Effective length": 6, "Moment": 16.4},
+            {"Effective length": 6.5, "Moment": 15.3},
+            {"Effective length": 7, "Moment": 14.4},
+        ]
+    },
+    "150x90x24": {
+        "Second moment of area": 1160,
+        "Data": [
+            {"Effective length": 1, "Moment": 49.1},
+            {"Effective length": 1.5, "Moment": 46.7},
+            {"Effective length": 2, "Moment": 42.9},
+            {"Effective length": 2.5, "Moment": 39.6},
+            {"Effective length": 3, "Moment": 36.7},
+            {"Effective length": 3.5, "Moment": 34.1},
+            {"Effective length": 4, "Moment": 31.8},
+            {"Effective length": 4.5, "Moment": 29.7},
+            {"Effective length": 5, "Moment": 27.9},
+            {"Effective length": 5.5, "Moment": 26.2},
+            {"Effective length": 6, "Moment": 24.8},
+            {"Effective length": 6.5, "Moment": 23.4},
+            {"Effective length": 7, "Moment": 22.2},
+        ]
+    },
+    "150x75x18": {
+        "Second moment of area": 861,
+        "Data": [
+            {"Effective length": 1, "Moment": 35.9},
+            {"Effective length": 1.5, "Moment": 31.8},
+            {"Effective length": 2, "Moment": 28.2},
+            {"Effective length": 2.5, "Moment": 25.2},
+            {"Effective length": 3, "Moment": 22.7},
+            {"Effective length": 3.5, "Moment": 20.6},
+            {"Effective length": 4, "Moment": 18.8},
+            {"Effective length": 4.5, "Moment": 17.3},
+            {"Effective length": 5, "Moment": 16.0},
+            {"Effective length": 5.5, "Moment": 14.8},
+            {"Effective length": 6, "Moment": 13.9},
+            {"Effective length": 6.5, "Moment": 13.0},
+            {"Effective length": 7, "Moment": 12.3},
+        ]
+    },
+    "125x65x15": {
+        "Second moment of area": 483,
+        "Data": [
+            {"Effective length": 1, "Moment": 23.8},
+            {"Effective length": 1.5, "Moment": 21.1},
+            {"Effective length": 2, "Moment": 18.8},
+            {"Effective length": 2.5, "Moment": 16.9},
+            {"Effective length": 3, "Moment": 15.2},
+            {"Effective length": 3.5, "Moment": 13.9},
+            {"Effective length": 4, "Moment": 12.7},
+            {"Effective length": 4.5, "Moment": 11.7},
+            {"Effective length": 5, "Moment": 10.9},
+            {"Effective length": 5.5, "Moment": 10.1},
+            {"Effective length": 6, "Moment": 9.48},
+            {"Effective length": 6.5, "Moment": 0},
+            {"Effective length": 7, "Moment": 0},
+        ]
+    },
+    "100x50x10": {
+        "Second moment of area": 208,
+        "Data": [
+            {"Effective length": 1, "Moment": 12.2},
+            {"Effective length": 1.5, "Moment": 10.6},
+            {"Effective length": 2, "Moment": 9.34},
+            {"Effective length": 2.5, "Moment": 8.30},
+            {"Effective length": 3, "Moment": 7.45},
+            {"Effective length": 3.5, "Moment": 6.74},
+            {"Effective length": 4, "Moment": 6.14},
+            {"Effective length": 4.5, "Moment": 5.64},
+            {"Effective length": 5, "Moment": 0},
+            {"Effective length": 5.5, "Moment": 0},
+            {"Effective length": 6, "Moment": 0},
+            {"Effective length": 6.5, "Moment": 0},
+            {"Effective length": 7, "Moment": 0},
+        ]
+    }
+}
+
+
 load_data = {
     'f': {'description': 'Floor', 'weight': 2.0, 'safety_factor': 1.55},
     'r': {'description': 'Roof', 'weight': 1.6, 'safety_factor': 1.5},
@@ -1290,7 +1438,7 @@ import numpy as np
 
 def choose_beam(effective_length, moment_safety_factor):
     # Display options to select beam type
-    choice1 = st.selectbox("Would you like to use UB, UC, FB, or Other?", ["UB", "UC", "FB", "OTHER"])
+    choice1 = st.selectbox("Would you like to use UB, UC, FB, PFC or Other?", ["UB", "UC", "FB","PFC", "OTHER"])
 
     # UB Beam selection
     if choice1 == 'UB':
@@ -1345,6 +1493,60 @@ def choose_beam(effective_length, moment_safety_factor):
         Moment_at_effective_length = selected_beam[str(new_effective_length)]
         z, breadth, depth = None, None, None
 
+        st.write(f"Beam Display: {beam_display}")
+        st.write(f"Second Moment Chosen: {second_moment_chosen}")
+        st.write(f"Moment at Effective Length: {Moment_at_effective_length}")
+        
+    elif choice1 == 'PFC':
+        st.write("Available PFC Beams:")
+        selected_key = st.selectbox("Please enter the key of the PFC beam you want to use:", list(PFC_beams.keys())[::-1])
+
+        selected_beam = PFC_beams[selected_key]
+        second_moment_chosen = selected_beam['Second moment of area']
+        beam_display = f"{selected_key} PFC"
+        if effective_length <= 1:
+            new_effective_length = 1
+        elif effective_length > 1 and effective_length <= 1.5:
+            new_effective_length = 1.5
+        elif effective_length > 1.5 and effective_length <= 2:
+            new_effective_length = 2
+        elif effective_length > 2 and effective_length <= 2.5:
+            new_effective_length = 2.5
+        elif effective_length > 2.5 and effective_length <= 3:
+            new_effective_length = 3
+        elif effective_length > 3 and effective_length <= 3.5:
+            new_effective_length = 3.5
+        elif effective_length > 3.5 and effective_length <= 4:
+            new_effective_length = 4
+        elif effective_length >4 and effective_length <=4.5:
+            new_effective_length = 4.5
+        elif effective_length >4.5 and effective_length <=5:
+            new_effective_length = 5
+        elif effective_length >5 and effective_length <=5.5:
+            new_effective_length = 5.5
+        elif effective_length >5.5 and effective_length <=6:
+            new_effective_length = 6
+        elif effective_length >6 and effective_length <=6.5:
+            new_effective_length = 6.5
+        elif effective_length >6.5 and effective_length <=7:
+            new_effective_length = 7
+        else:
+            st.error("Error: Effective length is too large.")
+        
+        Moment_at_effective_length = None
+
+        for entry in selected_beam['Data']:
+            if entry['Effective length'] == new_effective_length:
+                Moment_at_effective_length = entry['Moment']
+                break
+
+        # Check if the moment was found
+        if Moment_at_effective_length is not None:
+            st.write(f"Moment at effective length {new_effective_length} for {beam_display}: {Moment_at_effective_length} kNm")
+        else:
+            st.error(f"Error: No moment found for effective length {new_effective_length}")
+        z, breadth, depth = None, None, None
+        
         st.write(f"Beam Display: {beam_display}")
         st.write(f"Second Moment Chosen: {second_moment_chosen}")
         st.write(f"Moment at Effective Length: {Moment_at_effective_length}")
