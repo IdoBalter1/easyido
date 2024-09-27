@@ -2812,6 +2812,29 @@ RHS_Reactions = {
             14.0: {"Reaction": 178, "Moment": 77.0}
         }
     },
+    "200x100x5": {
+        "Description": "200x100x5mm RHS",
+        "Width": 0.1,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 1020, "Moment": 52.9},
+            1.5: {"Reaction": 1000, "Moment": 52.9},
+            2.0: {"Reaction": 980, "Moment": 52.9},
+            2.5: {"Reaction": 956, "Moment": 52.9},
+            3.0: {"Reaction": 927, "Moment": 52.9},
+            3.5: {"Reaction": 893, "Moment": 52.9},
+            4.0: {"Reaction": 851, "Moment": 52.9},
+            5.0: {"Reaction": 743, "Moment": 52.9},
+            6.0: {"Reaction": 615, "Moment": 52.9},
+            7.0: {"Reaction": 496, "Moment": 52.9},
+            8.0: {"Reaction": 401, "Moment": 52.9},
+            9.0: {"Reaction": 327, "Moment": 52.9},
+            10.0: {"Reaction": 271, "Moment": 52.7},
+            11.0: {"Reaction": 228, "Moment": 52.3},
+            12.0: {"Reaction": 194, "Moment": 51.9},
+            13.0: {"Reaction": 167, "Moment": 51.6},
+            14.0: {"Reaction": 145, "Moment": 51.2},
+        }
+    },
     "200x100x10": {
         "Description": "200x100x10mm RHS",
         "Width":0.1,
