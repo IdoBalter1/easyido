@@ -158,7 +158,7 @@ def app():
             st.write(f"Sum: {result:.2f}")
             st.warning("Column doesn't hold up ⚠️")
         else:
-            st.success("Column Holds up well 😊 ")
+            st.success(f"Column Holds up well sum = {result:.2f} 😊 ")
         
         return Moment_capacity, axial_capacity_at_effective_length, result, moment, reaction, column_display, effective_length, type_column_choice, choice
 
