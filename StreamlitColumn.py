@@ -1,4 +1,4 @@
-from libraries import UB_Reactions, SHS_Reactions,CHS_Reactions,UC_Reactions,RHS_Reactions
+from libraries import UB_Reactions, SHS_Reactions,CHS_Reactions,UC_Reactions,RHS_Reactions,PFC_data
 from fpdf import FPDF
 from fpdf import FPDF, XPos, YPos
 import requests
@@ -72,7 +72,7 @@ def app():
             
         return effective_length
 
-    columns = ["SHS","CHS","UC","UB","RHS","OTHER"]           
+    columns = ["SHS","CHS","UC","UB","RHS","PFC","OTHER"]           
 
     def column_choice(effective_length):
         type_column_choice = st.selectbox("Choose a column type", columns)
@@ -112,6 +112,16 @@ def app():
             column_width = UC_Reactions[choice]["Width"]
             Moment_capacity = UC_Reactions[choice]["Buckling Lengths and Values"][effective_length]["Moment"]
             axial_capacity_at_effective_length = UC_Reactions[choice]["Buckling Lengths and Values"][effective_length]["Reaction"]
+        
+        elif type_column_choice == 'PFC':
+            beam_options = {key: PFC_data[key]['Description'] for key in PFC_data}
+            choice = st.selectbox("Select a PFC beam", options=list(beam_options.keys()), format_func=lambda x: beam_options[x])
+            
+            column_display = PFC_data[choice]["Description"]
+            column_width = PFC_data[choice]["Width"]
+            Moment_capacity = PFC_data[choice]["Buckling Lengths and Values"][effective_length]["Moment"]
+            axial_capacity_at_effective_length = PFC_data[choice]["Buckling Lengths and Values"][effective_length]["Reaction"]
+            
         elif type_column_choice == 'RHS':
             beam_options = {key: RHS_Reactions[key]['Description'] for key in RHS_Reactions}
             choice = st.selectbox("Select a RHS beam", options=list(beam_options.keys()), format_func=lambda x: beam_options[x])
