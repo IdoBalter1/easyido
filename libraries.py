@@ -4143,6 +4143,98 @@ UB_Reactions = {
 }
 
 UC_Reactions = {
+        "356x368x202": {
+        "Description": "356x368x202 UC",
+        "Width": 0.178,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 6810, "Moment": 1050},
+            1.5: {"Reaction": 6810, "Moment": 1050},
+            2.0: {"Reaction": 6810, "Moment": 1050},
+            2.5: {"Reaction": 6810, "Moment": 1050},
+            3.0: {"Reaction": 6780, "Moment": 1050},
+            3.5: {"Reaction": 6700, "Moment": 1050},
+            4.0: {"Reaction": 6610, "Moment": 1050},
+            5.0: {"Reaction": 6440, "Moment": 1020},
+            6.0: {"Reaction": 6250, "Moment": 986},
+            7.0: {"Reaction": 6050, "Moment": 956},
+            8.0: {"Reaction": 5830, "Moment": 926},
+            9.0: {"Reaction": 5590, "Moment": 898},
+            10.0: {"Reaction": 5330, "Moment": 869},
+            11.0: {"Reaction": 5050, "Moment": 842},
+            12.0: {"Reaction": 4750, "Moment": 815},
+            13.0: {"Reaction": 4440, "Moment": 789},
+            14.0: {"Reaction": 4140, "Moment": 764}
+        }
+    },
+    "356x368x177": {
+        "Description": "356x368x177 UC",
+        "Width": 0.178,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 5990, "Moment": 917},
+            1.5: {"Reaction": 5990, "Moment": 917},
+            2.0: {"Reaction": 5990, "Moment": 917},
+            2.5: {"Reaction": 5990, "Moment": 917},
+            3.0: {"Reaction": 5960, "Moment": 917},
+            3.5: {"Reaction": 5880, "Moment": 917},
+            4.0: {"Reaction": 5810, "Moment": 913},
+            5.0: {"Reaction": 5650, "Moment": 882},
+            6.0: {"Reaction": 5480, "Moment": 852},
+            7.0: {"Reaction": 5300, "Moment": 822},
+            8.0: {"Reaction": 5100, "Moment": 794},
+            9.0: {"Reaction": 4890, "Moment": 766},
+            10.0: {"Reaction": 4660, "Moment": 738},
+            11.0: {"Reaction": 4400, "Moment": 711},
+            12.0: {"Reaction": 4140, "Moment": 685},
+            13.0: {"Reaction": 3860, "Moment": 660},
+            14.0: {"Reaction": 3590, "Moment": 636}
+        }
+    },
+    "356x368x153": {
+        "Description": "356x368x153 UC",
+        "Width": 0.178,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 5170, "Moment": 784},
+            1.5: {"Reaction": 5170, "Moment": 784},
+            2.0: {"Reaction": 5170, "Moment": 784},
+            2.5: {"Reaction": 5170, "Moment": 784},
+            3.0: {"Reaction": 5140, "Moment": 784},
+            3.5: {"Reaction": 5080, "Moment": 784},
+            4.0: {"Reaction": 5010, "Moment": 778},
+            5.0: {"Reaction": 4870, "Moment": 750},
+            6.0: {"Reaction": 4720, "Moment": 722},
+            7.0: {"Reaction": 4570, "Moment": 695},
+            8.0: {"Reaction": 4400, "Moment": 668},
+            9.0: {"Reaction": 4210, "Moment": 641},
+            10.0: {"Reaction": 4000, "Moment": 615},
+            11.0: {"Reaction": 3780, "Moment": 589},
+            12.0: {"Reaction": 3550, "Moment": 564},
+            13.0: {"Reaction": 3320, "Moment": 540},
+            14.0: {"Reaction": 3080, "Moment": 518}
+        }
+    },
+    "356x368x129": {
+        "Description": "356x368x129 UC",
+        "Width": 0.178,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 4350, "Moment": 657},
+            1.5: {"Reaction": 4350, "Moment": 657},
+            2.0: {"Reaction": 4350, "Moment": 657},
+            2.5: {"Reaction": 4350, "Moment": 657},
+            3.0: {"Reaction": 4320, "Moment": 657},
+            3.5: {"Reaction": 4260, "Moment": 657},
+            4.0: {"Reaction": 4210, "Moment": 649},
+            5.0: {"Reaction": 4090, "Moment": 624},
+            6.0: {"Reaction": 3960, "Moment": 599},
+            7.0: {"Reaction": 3830, "Moment": 573},
+            8.0: {"Reaction": 3680, "Moment": 547},
+            9.0: {"Reaction": 3520, "Moment": 522},
+            10.0: {"Reaction": 3340, "Moment": 496},
+            11.0: {"Reaction": 3160, "Moment": 472},
+            12.0: {"Reaction": 2960, "Moment": 448},
+            13.0: {"Reaction": 2760, "Moment": 426},
+            14.0: {"Reaction": 2550, "Moment": 405}
+        }
+    },
         "305x283": {
         "Description": "305x305x283 UC",
         "Width": 0.153,
@@ -4210,6 +4302,29 @@ UC_Reactions = {
             12.0: {"Reaction": 4180, "Moment": 714},
             13.0: {"Reaction": 3840, "Moment": 694},
             14.0: {"Reaction": 3520, "Moment": 674}
+        }
+    },
+            "305x305x158": {
+        "Description": "305x305x158 UC",
+        "Width": 0.152,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 5330, "Moment": 710},
+            1.5: {"Reaction": 5330, "Moment": 710},
+            2.0: {"Reaction": 5330, "Moment": 710},
+            2.5: {"Reaction": 5320, "Moment": 710},
+            3.0: {"Reaction": 5240, "Moment": 710},
+            3.5: {"Reaction": 5160, "Moment": 706},
+            4.0: {"Reaction": 5080, "Moment": 693},
+            5.0: {"Reaction": 4920, "Moment": 668},
+            6.0: {"Reaction": 4740, "Moment": 645},
+            7.0: {"Reaction": 4540, "Moment": 622},
+            8.0: {"Reaction": 4320, "Moment": 601},
+            9.0: {"Reaction": 4080, "Moment": 580},
+            10.0: {"Reaction": 3810, "Moment": 559},
+            11.0: {"Reaction": 3540, "Moment": 539},
+            12.0: {"Reaction": 3260, "Moment": 520},
+            13.0: {"Reaction": 2990, "Moment": 501},
+            14.0: {"Reaction": 2730, "Moment": 484}
         }
     },
         "305x137": {
