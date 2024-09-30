@@ -2651,6 +2651,7 @@ CHS_Reactions = {
     },
         "219.1x5": {
         "Description": "219.1x5mm CHS",
+        "width": 0.11,
         "Moment": 81.3,
         "Buckling Lengths and Reactions": {
             1.0: 1190,
@@ -2674,6 +2675,7 @@ CHS_Reactions = {
     },
     "219.1x6.3": {
         "Description": "219.1x6.3mm CHS",
+        "width": 0.11,
         "Moment": 101,
         "Buckling Lengths and Reactions": {
             1.0: 1500,
@@ -2697,6 +2699,7 @@ CHS_Reactions = {
     },
     "219.1x8": {
         "Description": "219.1x8mm CHS",
+        "width": 0.11,
         "Moment": 127,
         "Buckling Lengths and Reactions": {
             1.0: 1880,
@@ -2720,6 +2723,7 @@ CHS_Reactions = {
     },
     "219.1x10": {
         "Description": "219.1x10mm CHS",
+        "width": 0.11,
         "Moment": 155,
         "Buckling Lengths and Reactions": {
             1.0: 2330,
@@ -2743,6 +2747,7 @@ CHS_Reactions = {
     },
     "244.5x5": {
         "Description": "244.5x5mm CHS",
+        "width": 0.123,
         "Moment": 78.5,
         "Buckling Lengths and Reactions": {
             1.0: 1340,
@@ -2766,6 +2771,7 @@ CHS_Reactions = {
     },
     "244.5x6.3": {
         "Description": "244.5x6.3mm CHS",
+        "width": 0.123,
         "Moment": 127,
         "Buckling Lengths and Reactions": {
             1.0: 1670,
@@ -2789,6 +2795,7 @@ CHS_Reactions = {
     },
     "244.5x8": {
         "Description": "244.5x8mm CHS",
+        "width": 0.123,
         "Moment": 159,
         "Buckling Lengths and Reactions": {
             1.0: 2110,
@@ -2812,6 +2819,7 @@ CHS_Reactions = {
     },
     "244.5x10": {
         "Description": "244.5x10mm CHS",
+        "width": 0.123,
         "Moment": 195,
         "Buckling Lengths and Reactions": {
             1.0: 2620,
@@ -2835,6 +2843,7 @@ CHS_Reactions = {
     },
         "273.0x5": {
         "Description": "273.0x5mm CHS",
+        "width": 0.137,
         "Moment": 98.3,
         "Buckling Lengths and Reactions": {
             1.0: 1500,
@@ -2858,6 +2867,7 @@ CHS_Reactions = {
     },
     "273.0x6.3": {
         "Description": "273.0x6.3mm CHS",
+        "width": 0.137,
         "Moment": 159,
         "Buckling Lengths and Reactions": {
             1.0: 1870,
@@ -2881,6 +2891,7 @@ CHS_Reactions = {
     },
     "273.0x8": {
         "Description": "273.0x8mm CHS",
+        "width": 0.137,
         "Moment": 200,
         "Buckling Lengths and Reactions": {
             1.0: 2360,
@@ -2904,6 +2915,7 @@ CHS_Reactions = {
     },
     "273.0x10": {
         "Description": "273.0x10mm CHS",
+        "width": 0.137,
         "Moment": 246,
         "Buckling Lengths and Reactions": {
             1.0: 2930,
