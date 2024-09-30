@@ -1722,8 +1722,6 @@ def choose_beam(effective_length, moment_safety_factor):
 
     return beam_display, second_moment_chosen, Moment_at_effective_length, new_effective_length, choice1, z, breadth, depth
  
-
-
             
 footings = {
     '1': {'description': 'Provide 450mm Wide Foundation ', 'Area': 21500},
@@ -2533,7 +2531,237 @@ UB_Reactions = {
 }
 
 UC_Reactions = {
-    "254": {
+        "305x283": {
+        "Description": "305x305x283 UC",
+        "Width": 0.153,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 9180, "Moment": 1300},
+            1.5: {"Reaction": 9180, "Moment": 1300},
+            2.0: {"Reaction": 9180, "Moment": 1300},
+            2.5: {"Reaction": 9180, "Moment": 1300},
+            3.0: {"Reaction": 9100, "Moment": 1300},
+            3.5: {"Reaction": 8980, "Moment": 1300},
+            4.0: {"Reaction": 8850, "Moment": 1300},
+            5.0: {"Reaction": 8590, "Moment": 1280},
+            6.0: {"Reaction": 8320, "Moment": 1250},
+            7.0: {"Reaction": 8020, "Moment": 1230},
+            8.0: {"Reaction": 7690, "Moment": 1200},
+            9.0: {"Reaction": 7320, "Moment": 1180},
+            10.0: {"Reaction": 6930, "Moment": 1160},
+            11.0: {"Reaction": 6510, "Moment": 1140},
+            12.0: {"Reaction": 6070, "Moment": 1120},
+            13.0: {"Reaction": 5630, "Moment": 1100},
+            14.0: {"Reaction": 5200, "Moment": 1070}
+        }
+    },
+        "305x240": {
+        "Description": "305x305x240 UC",
+        "Width": 0.153,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 8110, "Moment": 1130},
+            1.5: {"Reaction": 8110, "Moment": 1130},
+            2.0: {"Reaction": 8110, "Moment": 1130},
+            2.5: {"Reaction": 8110, "Moment": 1130},
+            3.0: {"Reaction": 8010, "Moment": 1130},
+            3.5: {"Reaction": 7900, "Moment": 1130},
+            4.0: {"Reaction": 7780, "Moment": 1120},
+            5.0: {"Reaction": 7540, "Moment": 1090},
+            6.0: {"Reaction": 7280, "Moment": 1060},
+            7.0: {"Reaction": 7000, "Moment": 1040},
+            8.0: {"Reaction": 6690, "Moment": 1020},
+            9.0: {"Reaction": 6350, "Moment": 992},
+            10.0: {"Reaction": 5970, "Moment": 969},
+            11.0: {"Reaction": 5580, "Moment": 947},
+            12.0: {"Reaction": 5170, "Moment": 925},
+            13.0: {"Reaction": 4770, "Moment": 903},
+            14.0: {"Reaction": 4380, "Moment": 882}
+        }
+    },
+        "305x198": {
+        "Description": "305x305x198 UC",
+        "Width": 0.153,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 6680, "Moment": 912},
+            1.5: {"Reaction": 6680, "Moment": 912},
+            2.0: {"Reaction": 6680, "Moment": 912},
+            2.5: {"Reaction": 6680, "Moment": 912},
+            3.0: {"Reaction": 6590, "Moment": 912},
+            3.5: {"Reaction": 6490, "Moment": 912},
+            4.0: {"Reaction": 6390, "Moment": 899},
+            5.0: {"Reaction": 6190, "Moment": 872},
+            6.0: {"Reaction": 5970, "Moment": 847},
+            7.0: {"Reaction": 5730, "Moment": 823},
+            8.0: {"Reaction": 5460, "Moment": 800},
+            9.0: {"Reaction": 5170, "Moment": 778},
+            10.0: {"Reaction": 4850, "Moment": 756},
+            11.0: {"Reaction": 4520, "Moment": 735},
+            12.0: {"Reaction": 4180, "Moment": 714},
+            13.0: {"Reaction": 3840, "Moment": 694},
+            14.0: {"Reaction": 3520, "Moment": 674}
+        }
+    },
+        "305x137": {
+        "Description": "305x305x137 UC",
+        "Width": 0.153,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 4610, "Moment": 610},
+            1.5: {"Reaction": 4610, "Moment": 610},
+            2.0: {"Reaction": 4610, "Moment": 610},
+            2.5: {"Reaction": 4600, "Moment": 610},
+            3.0: {"Reaction": 4530, "Moment": 610},
+            3.5: {"Reaction": 4460, "Moment": 603},
+            4.0: {"Reaction": 4390, "Moment": 591},
+            5.0: {"Reaction": 4250, "Moment": 567},
+            6.0: {"Reaction": 4090, "Moment": 545},
+            7.0: {"Reaction": 3910, "Moment": 523},
+            8.0: {"Reaction": 3720, "Moment": 502},
+            9.0: {"Reaction": 3500, "Moment": 482},
+            10.0: {"Reaction": 3270, "Moment": 462},
+            11.0: {"Reaction": 3020, "Moment": 443},
+            12.0: {"Reaction": 2780, "Moment": 424},
+            13.0: {"Reaction": 2540, "Moment": 407},
+            14.0: {"Reaction": 2320, "Moment": 390}
+        }
+    },
+    "305x118": {
+        "Description": "305x305x118 UC",
+        "Width": 0.153,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 3980, "Moment": 519},
+            1.5: {"Reaction": 3980, "Moment": 519},
+            2.0: {"Reaction": 3980, "Moment": 519},
+            2.5: {"Reaction": 3960, "Moment": 519},
+            3.0: {"Reaction": 3900, "Moment": 519},
+            3.5: {"Reaction": 3840, "Moment": 511},
+            4.0: {"Reaction": 3780, "Moment": 500},
+            5.0: {"Reaction": 3660, "Moment": 478},
+            6.0: {"Reaction": 3520, "Moment": 457},
+            7.0: {"Reaction": 3360, "Moment": 436},
+            8.0: {"Reaction": 3190, "Moment": 416},
+            9.0: {"Reaction": 3000, "Moment": 396},
+            10.0: {"Reaction": 2800, "Moment": 377},
+            11.0: {"Reaction": 2590, "Moment": 359},
+            12.0: {"Reaction": 2380, "Moment": 342},
+            13.0: {"Reaction": 2170, "Moment": 325},
+            14.0: {"Reaction": 1980, "Moment": 310}
+        }
+    },
+    "305x97": {
+        "Description": "305x305x97 UC",
+        "Width": 0.153,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 3380, "Moment": 437},
+            1.5: {"Reaction": 3380, "Moment": 437},
+            2.0: {"Reaction": 3380, "Moment": 437},
+            2.5: {"Reaction": 3360, "Moment": 437},
+            3.0: {"Reaction": 3310, "Moment": 437},
+            3.5: {"Reaction": 3260, "Moment": 426},
+            4.0: {"Reaction": 3210, "Moment": 416},
+            5.0: {"Reaction": 3090, "Moment": 395},
+            6.0: {"Reaction": 2970, "Moment": 374},
+            7.0: {"Reaction": 2830, "Moment": 353},
+            8.0: {"Reaction": 2670, "Moment": 333},
+            9.0: {"Reaction": 2500, "Moment": 313},
+            10.0: {"Reaction": 2320, "Moment": 294},
+            11.0: {"Reaction": 2140, "Moment": 276},
+            12.0: {"Reaction": 1950, "Moment": 260},
+            13.0: {"Reaction": 1780, "Moment": 245},
+            14.0: {"Reaction": 1610, "Moment": 232}
+        }
+    },
+    "254x167": {
+        "Description": "254x254x167 UC",
+        "Width": 0.127,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 5640, "Moment": 641},
+            1.5: {"Reaction": 5640, "Moment": 641},
+            2.0: {"Reaction": 5640, "Moment": 641},
+            2.5: {"Reaction": 5570, "Moment": 641},
+            3.0: {"Reaction": 5470, "Moment": 641},
+            3.5: {"Reaction": 5370, "Moment": 636},
+            4.0: {"Reaction": 5270, "Moment": 626},
+            5.0: {"Reaction": 5050, "Moment": 608},
+            6.0: {"Reaction": 4810, "Moment": 591},
+            7.0: {"Reaction": 4530, "Moment": 575},
+            8.0: {"Reaction": 4230, "Moment": 560},
+            9.0: {"Reaction": 3890, "Moment": 545},
+            10.0: {"Reaction": 3550, "Moment": 531},
+            11.0: {"Reaction": 3210, "Moment": 516},
+            12.0: {"Reaction": 2890, "Moment": 502},
+            13.0: {"Reaction": 2590, "Moment": 489},
+            14.0: {"Reaction": 2330, "Moment": 475}
+        }
+    },
+    "254x132": {
+        "Description": "254x254x132 UC",
+        "Width": 0.127,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 4450, "Moment": 496},
+            1.5: {"Reaction": 4450, "Moment": 496},
+            2.0: {"Reaction": 4450, "Moment": 496},
+            2.5: {"Reaction": 4380, "Moment": 496},
+            3.0: {"Reaction": 4300, "Moment": 495},
+            3.5: {"Reaction": 4220, "Moment": 485},
+            4.0: {"Reaction": 4140, "Moment": 476},
+            5.0: {"Reaction": 3960, "Moment": 460},
+            6.0: {"Reaction": 3760, "Moment": 444},
+            7.0: {"Reaction": 3530, "Moment": 429},
+            8.0: {"Reaction": 3280, "Moment": 415},
+            9.0: {"Reaction": 3010, "Moment": 401},
+            10.0: {"Reaction": 2730, "Moment": 387},
+            11.0: {"Reaction": 2460, "Moment": 374},
+            12.0: {"Reaction": 2200, "Moment": 361},
+            13.0: {"Reaction": 1970, "Moment": 348},
+            14.0: {"Reaction": 1770, "Moment": 337}
+        }
+    },
+    "254x107": {
+        "Description": "254x254x107 UC",
+        "Width": 0.127,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 3600, "Moment": 392},
+            1.5: {"Reaction": 3600, "Moment": 392},
+            2.0: {"Reaction": 3600, "Moment": 392},
+            2.5: {"Reaction": 3540, "Moment": 392},
+            3.0: {"Reaction": 3470, "Moment": 388},
+            3.5: {"Reaction": 3410, "Moment": 380},
+            4.0: {"Reaction": 3340, "Moment": 372},
+            5.0: {"Reaction": 3190, "Moment": 356},
+            6.0: {"Reaction": 3020, "Moment": 342},
+            7.0: {"Reaction": 2820, "Moment": 327},
+            8.0: {"Reaction": 2610, "Moment": 314},
+            9.0: {"Reaction": 2380, "Moment": 300},
+            10.0: {"Reaction": 2150, "Moment": 288},
+            11.0: {"Reaction": 1930, "Moment": 276},
+            12.0: {"Reaction": 1720, "Moment": 264},
+            13.0: {"Reaction": 1540, "Moment": 253},
+            14.0: {"Reaction": 1370, "Moment": 242}
+        }
+    },
+        "254x89": {
+        "Description": "254x254x89 UC",
+        "Width": 0.127,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 2990, "Moment": 323},
+            1.5: {"Reaction": 2990, "Moment": 323},
+            2.0: {"Reaction": 2990, "Moment": 323},
+            2.5: {"Reaction": 2940, "Moment": 323},
+            3.0: {"Reaction": 2880, "Moment": 318},
+            3.5: {"Reaction": 2830, "Moment": 310},
+            4.0: {"Reaction": 2770, "Moment": 303},
+            5.0: {"Reaction": 2640, "Moment": 288},
+            6.0: {"Reaction": 2500, "Moment": 274},
+            7.0: {"Reaction": 2340, "Moment": 261},
+            8.0: {"Reaction": 2160, "Moment": 248},
+            9.0: {"Reaction": 1960, "Moment": 235},
+            10.0: {"Reaction": 1770, "Moment": 223},
+            11.0: {"Reaction": 1580, "Moment": 212},
+            12.0: {"Reaction": 1410, "Moment": 201},
+            13.0: {"Reaction": 1260, "Moment": 191},
+            14.0: {"Reaction": 1130, "Moment": 182}
+        }
+    },
+    "254x73": {
         "Description": "254x254x73 UC",
         "Width": 0.127,
         "Buckling Lengths and Values": {
