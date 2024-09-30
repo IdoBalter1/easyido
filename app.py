@@ -3,6 +3,7 @@ import StreamlitMain as sm
 import StreamlitColumn as sc
 import StreamlitFoundations as sf
 import Home as h
+import Cantilever as c
 import libraries
 
 
@@ -51,6 +52,7 @@ def main():
             "Beams": sm,
             "Columns": sc,
             "Foundations": sf,
+            "Cantilever": c
         }
 
         # Sidebar for navigation
