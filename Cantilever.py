@@ -559,9 +559,10 @@ def app():
         # Save the figure if needed
         plt.savefig('shear_force_bending_moment.png')
         st.pyplot(fig)
-        
-    moment_safety_factor = 1.5* Ma
-    W_equiv = Ma/span
+    
+    Ma = round(r2,2)    
+    moment_safety_factor = 1.5* r2
+    W_equiv = r2/span
     E = 205*10**9
 
     pdf = PDF('P', 'mm', 'A4')
