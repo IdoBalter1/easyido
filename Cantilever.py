@@ -525,6 +525,9 @@ def app():
     # Calculating the maximum bending moment
     if len(bendingMoment) > 0:
         max_bending_moment = np.max(np.abs(bendingMoment))
+        moment_safety_factor = 1.5* max_bending_moment
+        W_equiv = max_bending_moment/span
+        E = 205*10**9
         #print(f"The maximum bending moment is {max_bending_moment:.3f} kNm")
 
 
@@ -560,8 +563,7 @@ def app():
     moment_safety_factor = 1.5* max_bending_moment
     W_equiv = max_bending_moment/span
     E = 205*10**9
-    I_req = W_equiv*10**3*span**3/(3*E*max_def)
-    
+
     pdf = PDF('P', 'mm', 'A4')
 
     pdf.set_auto_page_break(auto = 1, margin = 10)
