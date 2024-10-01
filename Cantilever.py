@@ -392,7 +392,7 @@ def app():
     reactions = np.array([0.0, 0, 0])
     shearForce = np.zeros(len(X))
     bendingMoment = np.zeros(len(X))
-    max_def = span/0.36
+    max_def = span/360
 
     # Reaction calculation for point loads
     # Reaction calculation for point loads (PL) on cantilever
@@ -564,7 +564,7 @@ def app():
     moment_safety_factor = 1.5* r2
     W_equiv = r2/span
     E = 205*10**9
-    I_min = W_equiv*10**3*span**3/(3*E*max_def)
+    I_min = (W_equiv*10**3*span**3/(3*E*max_def)) *10**8
     pdf = PDF('P', 'mm', 'A4')
 
     pdf.set_auto_page_break(auto = 1, margin = 10)
