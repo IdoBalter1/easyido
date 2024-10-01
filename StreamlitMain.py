@@ -162,7 +162,7 @@ def app():
     st.session_state.self_weight = []
         
     if self_weight is not None:
-        st.session_state.self_weight.append({"code":"self_weight","distance": span, "magnitude": self_weight, "total_loading": self_weight, "factored_loading": self_weight_safety_factor * self_weight})
+        st.session_state.self_weight.append({"code":"self_weight","distance": span, "magnitude": self_weight, "total_loading": self_weight, "factored_loading": round(self_weight_safety_factor * self_weight,2)})
     # Functions for adding/removing loads
     def add_distributed_load():
         st.session_state.distributed_loads.append({"code": None, "distance": 0.0, "magnitude": 0.0, "total_loading": 0.0, "factored_loading": 0.0})
@@ -235,8 +235,8 @@ def app():
             ])
             
         if self_weight is not None:
-            total_self_weight_loading = self_weight * 1  # Distributed load over 1m
-            factored_self_weight_loading = total_self_weight_loading * 1.5  # Apply the safety factor
+            total_self_weight_loading = round(self_weight * 1,2)  # Distributed load over 1m
+            factored_self_weight_loading = round(total_self_weight_loading * 1.5,2)  # Apply the safety factor
 
             loadings.append([
                 "Self-weight",        # Load type
