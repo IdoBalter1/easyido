@@ -398,6 +398,7 @@ def app():
     # Reaction calculation for point loads
     # Reaction calculation for point loads (PL) on cantilever
     def reactions_PL(n):
+
         xp = pointLoads[n, 0]  # Location of point load
         fy = pointLoads[n, 1]  # Magnitude of point load
         
@@ -533,33 +534,37 @@ def app():
 
 
 
+    shearForce_trimmed = shearForce[1:-1]
+    bendingMoment_trimmed = bendingMoment[1:-1]
+    X_trimmed = X[1:-1]  # Ensure the corresponding X values are also trimmed
+
     # Create a new figure with a specific size
-        fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
 
-        # Shear Force Diagram
-        ax[0].plot(X, shearForce, label='Shear Force')
-        ax[0].fill_between(X, shearForce, color='skyblue', alpha=0.4)
-        ax[0].set_xlabel('Position along the beam (m)')
-        ax[0].set_ylabel('Shear Force (kN)')
-        ax[0].set_title('Shear Force Diagram')
-        ax[0].legend()
-        ax[0].grid(True)
+    # Shear Force Diagram
+    ax[0].plot(X_trimmed, shearForce_trimmed, label='Shear Force')
+    ax[0].fill_between(X_trimmed, shearForce_trimmed, color='skyblue', alpha=0.4)
+    ax[0].set_xlabel('Position along the beam (m)')
+    ax[0].set_ylabel('Shear Force (kN)')
+    ax[0].set_title('Shear Force Diagram')
+    ax[0].legend()
+    ax[0].grid(True)
 
-        # Bending Moment Diagram
-        ax[1].plot(X, bendingMoment, label='Bending Moment', color='r')
-        ax[1].fill_between(X, bendingMoment, color='red', alpha=0.2)
-        ax[1].set_xlabel('Position along the beam (m)')
-        ax[1].set_ylabel('Bending Moment (kNm)')
-        ax[1].set_title('Bending Moment Diagram')
-        ax[1].legend()
-        ax[1].grid(True)
+    # Bending Moment Diagram
+    ax[1].plot(X_trimmed, bendingMoment_trimmed, label='Bending Moment', color='r')
+    ax[1].fill_between(X_trimmed, bendingMoment_trimmed, color='red', alpha=0.2)
+    ax[1].set_xlabel('Position along the beam (m)')
+    ax[1].set_ylabel('Bending Moment (kNm)')
+    ax[1].set_title('Bending Moment Diagram')
+    ax[1].legend()
+    ax[1].grid(True)
 
-        # Adjust layout
-        plt.tight_layout()
+    # Adjust layout
+    plt.tight_layout()
 
-        # Save the figure if needed
-        plt.savefig('shear_force_bending_moment.png')
-        st.pyplot(fig)
+    # Save the figure if needed
+    plt.savefig('shear_force_bending_moment_trimmed.png')
+    st.pyplot(fig)
     
     Ma = round(r2,2)    
     moment_safety_factor = 1.5* r2
@@ -713,4 +718,5 @@ def app():
         st.success("Inputs have been reset 😊.")
     else:
         None
-        
+
+
