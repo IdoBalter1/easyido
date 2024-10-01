@@ -124,6 +124,7 @@ def app():
             effective_length_factor = st.number_input("Enter the effective length factor:", min_value=0.0,value =1.2, step = 0.00000000000000000000001)
             effective_length_factor = round(effective_length_factor, 3)
             self_weight = st.number_input("Enter the self-weight:", min_value=0.0,value =0.4, step = 0.00000000000000000000001)
+            self_weight = round(self_weight,2)
             self_weight_safety_factor = 1.5
             effective_length = span * effective_length_factor
         else:
