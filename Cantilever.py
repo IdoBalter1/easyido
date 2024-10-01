@@ -25,7 +25,6 @@ def app():
     job_number = st.session_state.get("job_number", 0)
     date = st.session_state.get("date", "")
     image = st.session_state.get("image", "") or None
-    call_number = 1
 
     materials = ["Steel"]
 
@@ -65,11 +64,11 @@ def app():
 
 
     def get_inputs():
-        title_of_work1 = st.text_input("Enter the title of the work", value="", key="title_of_work1") 
+        title_of_work1 = st.text_input("Enter title of the work", value="", key="title_of_work1") 
         title_of_work1 = title_of_work1.upper()  # Convert the title to uppercase after input
 
 
-        sheet_number1 = st.number_input("Sheet Number", min_value=1.0, value=1.0, step=0.00000000000000000000001)
+        sheet_number1 = st.number_input("Enter Sheet Number", min_value=1.0, value=1.0, step=0.00000000000000000000001, key="sheet_number1")
         sheet_number1 = round(sheet_number1)
 
 
