@@ -1544,7 +1544,7 @@ load_data = {
     'r': {'description': 'Roof', 'weight': 1.6, 'safety_factor': 1.5},
     'fr': {'description': 'Flat Roof', 'weight': 1.55, 'safety_factor': 1.5},
     'c': {'description': 'Ceiling', 'weight': 0.5, 'safety_factor': 1.5},
-    'si': {'description': 'Stud Work Internal', 'weight': 0.5, 'safety_factor': 1.4},
+    'si': {'description': 'Stud Work Internal', 'weight': 0.6, 'safety_factor': 1.4},
     'se': {'description': 'Stud Work External', 'weight': 0.95, 'safety_factor': 1.4},
     'bc': {'description': 'Block Wall', 'weight': 1.5, 'safety_factor': 1.4},
     'b1': {'description': 'Brick Wall 100', 'weight': 2.5, 'safety_factor': 1.4},
