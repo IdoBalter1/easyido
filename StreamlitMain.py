@@ -124,7 +124,7 @@ def app():
             effective_length_factor = st.number_input("Enter the effective length factor:", min_value=0.0,value =1.2, step = 0.00000000000000000000001)
             effective_length_factor = round(effective_length_factor, 3)
             self_weight = st.number_input("Enter the self-weight:", min_value=0.0,value =0.4, step = 0.00000000000000000000001)
-            self_weight_safety_factor = 1.4
+            self_weight_safety_factor = 1.5
             effective_length = span * effective_length_factor
         else:
             effective_length = None
@@ -147,6 +147,7 @@ def app():
 
     # Now, call get_user_input() to gather other inputs, and manage loads with the session state
     span, effective_length, padstone_input, strength, material,self_weight_safety_factor, self_weight = get_user_input()
+    
     if material == 'Timber': 
         floor_checkbox = st.checkbox("Is this a Floor Calculation? ",value = False)
     # Initialize session state
@@ -156,6 +157,11 @@ def app():
     if "point_loads" not in st.session_state:
         st.session_state.point_loads = []
 
+ 
+    st.session_state.self_weight = []
+        
+    if self_weight is not None:
+        st.session_state.self_weight.append({"code":"self_weight","distance": span, "magnitude": self_weight, "total_loading": self_weight, "factored_loading": self_weight_safety_factor * self_weight})
     # Functions for adding/removing loads
     def add_distributed_load():
         st.session_state.distributed_loads.append({"code": None, "distance": 0.0, "magnitude": 0.0, "total_loading": 0.0, "factored_loading": 0.0})
@@ -184,12 +190,21 @@ def app():
         for load in st.session_state.point_loads:
             total_point_loading += load['magnitude']
             factored_point_loading += load['factored_point_loading']
+        
+        for load in st.session_state.self_weight:
+            total_loading += load['magnitude']
+            factored_loading += load['factored_loading']
 
         return total_loading, factored_loading, total_point_loading, factored_point_loading
 
     def get_load_arrays():
         pointLoads = np.array([[load['position'], load['magnitude']] for load in st.session_state.point_loads])
         distributedLoads = np.array([[0, span, load['magnitude']*load['distance']] for load in st.session_state.distributed_loads])
+        if self_weight is not None:
+            if distributedLoads.size == 0:
+                distributedLoads = np.array([[0, span, self_weight]])
+            else:
+                distributedLoads = np.vstack((distributedLoads, [0, span, self_weight]))
         return pointLoads, distributedLoads
 
     def get_data():
@@ -220,7 +235,7 @@ def app():
             
         if self_weight is not None:
             total_self_weight_loading = self_weight * 1  # Distributed load over 1m
-            factored_self_weight_loading = total_self_weight_loading * 1.4  # Apply the safety factor
+            factored_self_weight_loading = total_self_weight_loading * 1.5  # Apply the safety factor
 
             loadings.append([
                 "Self-weight",        # Load type
@@ -360,6 +375,10 @@ def app():
         table_data.append([
             "Point Load", "-", "-", f"{load['magnitude']:.2f}", f"{load['factored_point_loading']:.2f}", "-", "-"
         ])
+    
+    for load in st.session_state.self_weight:
+        table_data.append([
+            "self weight", self_weight, "-", "-", "-", self_weight,self_weight*1.5])
 
     # Display the Table
     st.write("### Load Data Table")
@@ -886,3 +905,4 @@ def app():
         None
 
 
+app()
