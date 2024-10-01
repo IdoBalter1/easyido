@@ -65,18 +65,18 @@ def app():
 
 
     def get_inputs():
-        title_of_work = st.text_input("Enter the title of the work", value="")
-        title_of_work = title_of_work.upper()  # Convert the title to uppercase after input
+        title_of_work1 = st.text_input("Enter the title of the work", value="", key="title_of_work1") 
+        title_of_work1 = title_of_work1.upper()  # Convert the title to uppercase after input
 
 
-        sheet_number = st.number_input("Sheet Number", min_value=1.0, value=1.0, step=0.00000000000000000000001)
-        sheet_number = round(sheet_number)
+        sheet_number1 = st.number_input("Sheet Number", min_value=1.0, value=1.0, step=0.00000000000000000000001)
+        sheet_number1 = round(sheet_number1)
 
 
 
-        return  title_of_work, sheet_number,
+        return  title_of_work1, sheet_number1,
 
-    title_of_work, sheet_number = get_inputs()
+    title_of_work1, sheet_number1 = get_inputs()
     class PDF(FPDF):
         def header(self):
             """
@@ -102,7 +102,7 @@ def app():
             self.cell(cell_width_1, 10, f'DATE {date}', border=True, align='L')
             self.cell(cell_width_1, 10, f'CHECKED- {initials}', border=True, align='L')
             self.cell(cell_width_1, 10, f'JOB NO. {job_number}', border=True, align='L')
-            self.cell(cell_width_1, 10, f'SHEET {int(sheet_number) + (page_number - 1)}', border=True, align='L')
+            self.cell(cell_width_1, 10, f'SHEET {int(sheet_number1) + (page_number - 1)}', border=True, align='L')
             self.cell(cell_width_1, 10, f'REV {rev}', border=True, align='L')
             self.ln()
 
@@ -154,6 +154,10 @@ def app():
     if "point_loads" not in st.session_state:
         st.session_state.point_loads = []
 
+    st.session_state.self_weight = []
+        
+    if self_weight is not None:
+        st.session_state.self_weight.append({"code":"self_weight","distance": span, "magnitude": self_weight, "total_loading": self_weight, "factored_loading": self_weight_safety_factor * self_weight})
     # Functions for adding/removing loads
     def add_distributed_load():
         st.session_state.distributed_loads.append({"code": None, "distance": 0.0, "magnitude": 0.0, "total_loading": 0.0, "factored_loading": 0.0})
@@ -183,11 +187,20 @@ def app():
             total_point_loading += load['magnitude']
             factored_point_loading += load['factored_point_loading']
 
+        for load in st.session_state.self_weight:
+            total_loading += load['magnitude']
+            factored_loading += load['factored_loading']
+
         return total_loading, factored_loading, total_point_loading, factored_point_loading
 
     def get_load_arrays():
         pointLoads = np.array([[load['position'], load['magnitude']] for load in st.session_state.point_loads])
         distributedLoads = np.array([[0, span, load['magnitude']*load['distance']] for load in st.session_state.distributed_loads])
+        if self_weight is not None:
+            if distributedLoads.size == 0:
+                distributedLoads = np.array([[0, span, self_weight]])
+            else:
+                distributedLoads = np.vstack((distributedLoads, [0, span, self_weight]))        
         return pointLoads, distributedLoads
 
     def get_data():
@@ -358,6 +371,10 @@ def app():
         table_data.append([
             "Point Load", "-", "-", f"{load['magnitude']:.2f}", f"{load['factored_point_loading']:.2f}", "-", "-"
         ])
+
+    for load in st.session_state.self_weight:
+        table_data.append([
+            "self weight", self_weight, "-", "-", "-", self_weight,self_weight*1.5])
 
     # Display the Table
     st.write("### Load Data Table")
@@ -554,7 +571,7 @@ def app():
     #specify font
     pdf.set_font('Times', 'B', 18)
     pdf.set_y(50)
-    pdf.cell(0,10,f'{title_of_work}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
+    pdf.cell(0,10,f'{title_of_work1}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
     pdf.set_font('Times', '', 11)
     pdf.cell(50,10,f'Span = {span} m',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     if material == 'Steel':
@@ -672,7 +689,7 @@ def app():
     else:
         None
         
-    pdf_file_path = f'{job_number}_{job_title}_Sheet_{sheet_number}.pdf'
+    pdf_file_path = f'{job_number}_{job_title}_Sheet_{sheet_number1}.pdf'
     pdf.output(pdf_file_path)
     finish = st.button("Finish")
     if finish:
