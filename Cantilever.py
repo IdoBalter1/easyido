@@ -610,73 +610,72 @@ def app():
     # Add further content below the image
     reactions = [r1,r2]
     pdf.set_font("Times",size =  11)
-    if  material == 'Steel':
-        current_y = pdf.get_y()
-        text_height = 60
-        if current_y + text_height> pdf.h -pdf.b_margin :
-            pdf.add_page()
-            text_y = pdf.y
+    current_y = pdf.get_y()
+    text_height = 60
+    if current_y + text_height> pdf.h -pdf.b_margin :
+        pdf.add_page()
+        text_y = pdf.y
+    else:
+        text_y = pdf.get_y()
+    pdf.set_y(text_y)
+    E = 205 * 10**9
+    st.write("The effective length is " + str(round(effective_length, 2)) + " m, minimum second moment of area is " + str(round(I_min, 2)) + " cm^4, The minimum moment required " + str(round(Ma, 1)) + " kNm")
+    st.write("The Maximum Deflection is " + str(round(max_def, 2)) + " mm")
+    beam_display, second_moment_chosen,Moment_at_effective_length, new_effective_length, choice1,z, breadth, depth = choose_beam(effective_length,moment_safety_factor)
+    if second_moment_chosen is not None and Moment_at_effective_length is not None:
+        if second_moment_chosen<=I_min or Moment_at_effective_length<=moment_safety_factor:
+            st.warning(f"The second moment of area chosen is {second_moment_chosen} cm^4, the required second moment of area is {np.ceil(I_min)} cm^4, the moment at the effective length is {Moment_at_effective_length} kNm, the required moment is {moment_safety_factor:.1f} kNm ⚠️")
         else:
-            text_y = pdf.get_y()
-        pdf.set_y(text_y)
-        E = 205 * 10**9
-        st.write("The effective length is " + str(round(effective_length, 2)) + " m, minimum second moment of area is " + str(round(I_min, 2)) + " cm^4, The minimum moment required " + str(round(Ma, 1)) + " kNm")
-        st.write("The Maximum Deflection is " + str(round(max_def, 2)) + " mm")
-        beam_display, second_moment_chosen,Moment_at_effective_length, new_effective_length, choice1,z, breadth, depth = choose_beam(effective_length,moment_safety_factor)
-        if second_moment_chosen is not None and Moment_at_effective_length is not None:
-            if second_moment_chosen<=I_min or Moment_at_effective_length<=moment_safety_factor:
-                st.warning(f"The second moment of area chosen is {second_moment_chosen} cm^4, the required second moment of area is {np.ceil(I_min)} cm^4, the moment at the effective length is {Moment_at_effective_length} kNm, the required moment is {moment_safety_factor:.1f} kNm ⚠️")
-            else:
-                st.success("The Beam matches the requirement 😊")
+            st.success("The Beam matches the requirement 😊")
 
 
-        if choice1 == 'UC' or choice1 == 'UB' or choice1 == 'OTHER' or choice1 == 'PFC':
-            pdf.cell(0, 10, f"Maximum Factored Moment = {moment_safety_factor:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
-            pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.set_font('Times', 'B', 18)
-            pdf.cell(0,10,f'Therefore Use Beam : {beam_display}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.set_font('Times', '', 11)
-            pdf.cell(0,10,f'Moment of Beam Chosen at Effective Length of {new_effective_length}m = {Moment_at_effective_length} kNm', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.cell(0,10,f'Second Moment of Area of Beam Chosen = {second_moment_chosen} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-        elif choice1 == 'FB':
-            pdf.cell(0,10,f'Flitch Capacity = 275 N/mm^2', new_x = XPos.LMARGIN, new_y = YPos.NEXT, align = 'L')
-            pdf.set_font('Times', 'B', 18)
-            pdf.cell(0,10,f'Therefore Use : Flitch Beam {breadth}x{depth}mm Thk STEEL PLATE',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.set_font('Times', 'B', 11)
-            pdf.cell(0,10,f'Flitch loading = {z:.2f} N/mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-        current_y = pdf.get_y()
-        text_height = 20
-        if current_y + text_height> pdf.h -pdf.b_margin :
-            pdf.add_page()
-            text_y = pdf.y
-        else:
-            text_y = pdf.get_y()
-        pdf.set_y(text_y)
-        pdf.cell(0, 10, f'Left Unfactored Reaction = {r1:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-        pdf.cell(0, 10, f'Right Unfactored Reaction = {r2:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    if choice1 == 'UC' or choice1 == 'UB' or choice1 == 'OTHER' or choice1 == 'PFC':
+        pdf.cell(0, 10, f"Maximum Factored Moment = {moment_safety_factor:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
+        pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.set_font('Times', 'B', 18)
+        pdf.cell(0,10,f'Therefore Use Beam : {beam_display}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.set_font('Times', '', 11)
+        pdf.cell(0,10,f'Moment of Beam Chosen at Effective Length of {new_effective_length}m = {Moment_at_effective_length} kNm', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.cell(0,10,f'Second Moment of Area of Beam Chosen = {second_moment_chosen} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    elif choice1 == 'FB':
+        pdf.cell(0,10,f'Flitch Capacity = 275 N/mm^2', new_x = XPos.LMARGIN, new_y = YPos.NEXT, align = 'L')
+        pdf.set_font('Times', 'B', 18)
+        pdf.cell(0,10,f'Therefore Use : Flitch Beam {breadth}x{depth}mm Thk STEEL PLATE',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.set_font('Times', 'B', 11)
+        pdf.cell(0,10,f'Flitch loading = {z:.2f} N/mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    current_y = pdf.get_y()
+    text_height = 20
+    if current_y + text_height> pdf.h -pdf.b_margin :
+        pdf.add_page()
+        text_y = pdf.y
+    else:
+        text_y = pdf.get_y()
+    pdf.set_y(text_y)
+    pdf.cell(0, 10, f'Left Unfactored Reaction = {r1:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    pdf.cell(0, 10, f'Right Unfactored Reaction = {r2:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
 
-        if padstone_input == True:
-            padstone_area = max(reactions)*1.5*10**3*3.5/(1.5*strength)
-            st.write(f"**minimum area is {np.ceil(padstone_area)} mm^2**")
-            area = 0
-            description = 'Unkown Description'
-            if area<padstone_area:
-                area, description = choose_padstone()
-                
-            if area<padstone_area:
-                st.warning(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 ⚠️")
-            else:
-                st.success(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 😊")
+    if padstone_input == True:
+        padstone_area = max(reactions)*1.5*10**3*3.5/(1.5*strength)
+        st.write(f"**minimum area is {np.ceil(padstone_area)} mm^2**")
+        area = 0
+        description = 'Unkown Description'
+        if area<padstone_area:
+            area, description = choose_padstone()
             
-
-            pdf.cell(0, 10, f'Padstone Area Required = {round(padstone_area)} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.set_font('Times', 'B',18)
-            pdf.cell(0, 10, f'Use {description}', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.set_font('Times', '', 11)
-            pdf.cell(0, 10, f'Area of Padstone Chosen = {round(area)} > {round(padstone_area)} ', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        if area<padstone_area:
+            st.warning(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 ⚠️")
         else:
-            None
+            st.success(f"Padstone area is {area} mm^2, the minimum area is {np.ceil(padstone_area)} mm^2 😊")
         
+
+        pdf.cell(0, 10, f'Padstone Area Required = {round(padstone_area)} mm^2', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.set_font('Times', 'B',18)
+        pdf.cell(0, 10, f'Use {description}', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.set_font('Times', '', 11)
+        pdf.cell(0, 10, f'Area of Padstone Chosen = {round(area)} > {round(padstone_area)} ', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    else:
+        None
+    
 
 
     
