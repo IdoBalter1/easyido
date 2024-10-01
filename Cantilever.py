@@ -582,7 +582,7 @@ def app():
     else:
         None
     if material == 'Steel' or material =='Timber':
-        pdf.cell(0,10,f'Allowable Deflection = {max_de_newf:.2f} mm',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
+        pdf.cell(0,10,f'Allowable Deflection = {max_def_new:.2f} mm',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     else:
         None
 
