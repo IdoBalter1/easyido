@@ -239,7 +239,7 @@ def app():
     pdf.cell(0,10,f'{title_of_work}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
     pdf.set_font('Times', '', 11)
     pdf.cell(0,10,f"Try {column_display}",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
-    pdf.cell(0,10,f'Effective length = {effective_length:.2f} m',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
+    pdf.cell(0,10,f'Effective Length = {effective_length:.2f} m',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     pdf.cell(0,10,f'Total Reaction, R = {reaction:.2f} kN',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     pdf.cell(0,10,f'Total Moment, M = R(0.1+w) = {moment:.2f} kNm',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     pdf.cell(0,10,f'Compressive Force Capacity, Fc = {axial_capacity_at_effective_length:.2f} kN',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')

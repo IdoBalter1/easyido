@@ -753,7 +753,7 @@ def app():
         beam_display, second_moment_chosen,Moment_at_effective_length, new_effective_length, choice1,z, breadth, depth = choose_beam(effective_length,moment_safety_factor)
         if second_moment_chosen is not None and Moment_at_effective_length is not None:
             if second_moment_chosen<=I_min or Moment_at_effective_length<=moment_safety_factor:
-                st.warning(f"The second moment of area chosen is {second_moment_chosen} cm^4, the required second moment of area is {np.ceil(I_min)} cm^4, the moment at the effective length is {Moment_at_effective_length} kNm, the required moment is {moment_safety_factor:.1f} kNm ⚠️")
+                st.warning(f"The Second Moment of Area Chosen is {second_moment_chosen} cm^4, he required second moment of area is {np.ceil(I_min)} cm^4, the moment at the effective length is {Moment_at_effective_length} kNm, the required moment is {moment_safety_factor:.1f} kNm ⚠️")
             else:
                 st.success("The Beam matches the requirement 😊")
 
@@ -832,8 +832,8 @@ def app():
                 rounded_distance = round(distance)
                 pdf.cell(0,10,f'Provide {breadth_timber}x{depth_timber}mm C24 timber joists at {(rounded_distance)} mm spacing',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
                 pdf.set_font('Times', '', 11)
-            pdf.cell(0,10,f"The Second moment of area of the timber is {I_of_timber:.0f}  x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.cell(0,10,f"The Elastic Section modulus of timber is {Elastic_section_of_timber:.1f} x10^3 mm^3",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f"The Second Moment of Area of the timber is {I_of_timber:.0f}  x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f"The Elastic Section Modulus of timber is {Elastic_section_of_timber:.1f} x10^3 mm^3",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             current_y = pdf.get_y()
             text_height = 20
             if current_y + text_height> pdf.h -pdf.b_margin :
@@ -854,7 +854,7 @@ def app():
             pdf.cell(0,10,f"The I of the timber is {I_of_timber:.0f} x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"ADD PLATE",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'C')
             pdf.cell(0,10,f"The Required Second Moment of Area of the Steel is {I_req_steel_format:.0f} x10^4 mm^4",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.cell(0,10,f"The Second moment of Area of the Steel is {I_steel_format:.0f} x10^4 mm^4",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f"The Second Moment of Area of the Steel is {I_steel_format:.0f} x10^4 mm^4",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B', 16)
             pdf.cell(0,10,f'Provide {number_of_timbers}No. {breadth_timber}x{depth_timber}mm C24 Timber with {breadth_steel}x{depth_steel}mm Thk steel', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )      
     elif material =='Catnic':

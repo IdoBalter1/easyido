@@ -326,7 +326,7 @@ def app():
 
 
     pdf.cell(0,10,f'Total Loading is: {total_of_totals:.2f} kN',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
-    pdf.cell(0,10,f'The ground bearing pressure is: {gbp:.2f} kN/m^2',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
+    pdf.cell(0,10,f'The Ground Bearing Pressure is: {gbp:.2f} kN/m^2',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
     pdf.set_font('Times', 'B', 18)
     pdf.cell(0,10,f'Area Required For Foundation is: {Area:.2f} m^2',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='C')
     pdf.set_font('Times', '', 16)

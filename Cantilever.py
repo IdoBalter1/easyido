@@ -583,7 +583,7 @@ def app():
     pdf.set_font('Times', '', 11)
     pdf.cell(50,10,f'Span = {span} m',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     if material == 'Steel':
-        pdf.cell(50,10,f'Effective length = {effective_length:.2f} m',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
+        pdf.cell(50,10,f'Effective Length = {effective_length:.2f} m',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     else:
         None
     if material == 'Steel' or material =='Timber':
@@ -637,7 +637,7 @@ def app():
 
     if choice1 == 'UC' or choice1 == 'UB' or choice1 == 'OTHER' or choice1 == 'PFC':
         pdf.cell(0, 10, f"Maximum Factored Moment = {moment_safety_factor:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
-        pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.cell(0,10,f'Minimum Second Moment of Area Required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         pdf.set_font('Times', 'B', 18)
         pdf.cell(0,10,f'Therefore Use Beam : {beam_display}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         pdf.set_font('Times', '', 11)
