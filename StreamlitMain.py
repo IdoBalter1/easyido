@@ -379,7 +379,7 @@ def app():
     
     for load in st.session_state.self_weight:
         table_data.append([
-            "self weight", self_weight, "-", "-", "-", self_weight,self_weight*1.5])
+            "self weight", self_weight, "-", "-", "-", self_weight,round(self_weight*1.5,2)])
 
     # Display the Table
     st.write("### Load Data Table")
