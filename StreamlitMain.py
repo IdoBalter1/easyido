@@ -858,14 +858,14 @@ def app():
             pdf.set_font('Times', 'B', 16)
             pdf.cell(0,10,f'Provide {number_of_timbers}No. {breadth_timber}x{depth_timber}mm C24 Timber with {breadth_steel}x{depth_steel}mm Thk steel', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )      
     elif material =='Catnic':
-        pdf.cell(0,10,f"The total unfactored loading is {(total_loading*span+total_point_loading):.2f} kN:",0,new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.cell(0,10,f"The Total Unfactored Loading is {(total_loading*span+total_point_loading):.2f} kN:",0,new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         pdf.set_font('Times', 'B', 18)
         pdf.cell(0,10,f"Therefore Use Catnic: {catnic_choice}", 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         pdf.set_font('Times', '', 11)
         
     elif material =='Concrete':
-        pdf.cell(0,10,f"The total unfactored loading is {(total_loading*span+total_point_loading):.1f} kN:",0,new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-        pdf.cell(0,10,f"The total unfactored moment is {max_bending_moment:.1f} kNm:",0,new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.cell(0,10,f"The Total Unfactored Loading is {(total_loading*span+total_point_loading):.1f} kN:",0,new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+        pdf.cell(0,10,f"The Total Unfactored Moment is {max_bending_moment:.1f} kNm:",0,new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         pdf.set_font('Times', 'B', 18)
         pdf.cell(0,10,f"Therefore Use Concrete Lintel: {concrete_choice}", 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
         pdf.set_font('Times', '', 11)
