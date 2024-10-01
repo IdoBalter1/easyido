@@ -651,8 +651,8 @@ def app():
     else:
         text_y = pdf.get_y()
     pdf.set_y(text_y)
-    pdf.cell(0, 10, f'Left Unfactored Reaction = {r1:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-    pdf.cell(0, 10, f'Right Unfactored Reaction = {r2:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    pdf.cell(0, 10, f'Reaction at Fixed End = {r1:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+    pdf.cell(0, 10, f'Moment at Fixed End = {r2:.2f} kN', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
 
     if padstone_input == True:
         padstone_area = max(reactions)*1.5*10**3*3.5/(1.5*strength)
