@@ -760,7 +760,7 @@ def app():
 
         if choice1 == 'UC' or choice1 == 'UB' or choice1 == 'OTHER' or choice1 == 'PFC':
             pdf.cell(0, 10, f"Maximum Factored Moment = {moment_safety_factor:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
-            pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f'Minimum Second Moment of Area Required = {I_min:.2f} cm^4', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B', 18)
             pdf.cell(0,10,f'Therefore Use Beam : {beam_display}',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', '', 11)
@@ -821,8 +821,8 @@ def app():
             I_of_timber = I_of_timber_no_format/10**4
             Elastic_section_of_timber = Elastic_section_of_timber_no_format/10**3
             pdf.cell(0, 10, f"Maximum Unfactored Moment = {max_bending_moment:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
-            pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.0f} x10^4 mm^4', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
-            pdf.cell(0,10,f'Elastic Section Modulus required = {Elastic_section:.1f} x10^3 mm^3', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f'Minimum Second Moment of Area Required = {I_min:.0f} x10^4 mm^4', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f'Elastic Section Modulus Required = {Elastic_section:.1f} x10^3 mm^3', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.set_font('Times', 'B', 18)
             if floor_checkbox == False:
                 pdf.cell(0,10,f'Use {number_of_timbers}No. {breadth_timber}x{depth_timber}mm C24 timber', new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L' )
@@ -850,7 +850,7 @@ def app():
             I_req_steel_format = I_req_steel/10**4
             I_steel_format = I_steel/10**4
             pdf.cell(0, 10, f"Maximum Unfactored Moment = {max_bending_moment:.2f} kNm", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
-            pdf.cell(0,10,f'Minimum Second Moment of Area required = {I_min:.0f} x10^4 mm^4', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
+            pdf.cell(0,10,f'Minimum Second Moment of Area Required = {I_min:.0f} x10^4 mm^4', 0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"The I of the timber is {I_of_timber:.0f} x10^4 mm^4", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
             pdf.cell(0,10,f"ADD PLATE",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'C')
             pdf.cell(0,10,f"The Required Second Moment of Area of the Steel is {I_req_steel_format:.0f} x10^4 mm^4",new_x=XPos.LMARGIN, new_y=YPos.NEXT, align = 'L')
