@@ -617,7 +617,7 @@ def app():
             text_y = pdf.get_y()
         pdf.set_y(text_y)
         E = 205 * 10**9
-        I_min = (5 * W_equiv * 10**3 * span**4 * 360*10**8/ (384 * E * span))
+        I_min = W_equiv*10**3*span**3/(3*E*max_def)
         st.write("The effective length is " + str(round(effective_length, 2)) + " m, minimum second moment of area is " + str(round(I_min, 2)) + " cm^4, The minimum moment required " + str(round(moment_safety_factor, 1)) + " kNm")
         st.write("The Maximum Deflection is " + str(round(max_def, 2)) + " mm")
         beam_display, second_moment_chosen,Moment_at_effective_length, new_effective_length, choice1,z, breadth, depth = choose_beam(effective_length,moment_safety_factor)
