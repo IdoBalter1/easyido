@@ -3586,7 +3586,7 @@ CHS_Reactions = {
         }
     },
     "273.0x14.2": {
-        "Description": "273.0x10mm CHS",
+        "Description": "273.0x14.2mm CHS",
         "width": 0.137,  # Adjusted width
         "Moment": 338,
         "Buckling Lengths and Reactions": {
