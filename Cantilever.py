@@ -711,6 +711,4 @@ def app():
         st.success("Inputs have been reset 😊.")
     else:
         None
-
-
-app()
+        

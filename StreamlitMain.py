@@ -904,5 +904,3 @@ def app():
     else:
         None
 
-
-app()
