@@ -197,9 +197,9 @@ def app():
         distributedLoads = np.array([[0, span, load['magnitude']*load['distance']] for load in st.session_state.distributed_loads])
         if self_weight is not None:
             if distributedLoads.size == 0:
-                distributedLoads = np.array([[0, span, self_weight]])
+                distributedLoads = np.array([[0, span, round(self_weight,2)]])
             else:
-                distributedLoads = np.vstack((distributedLoads, [0, span, self_weight]))        
+                distributedLoads = np.vstack((distributedLoads, [0, span, round(self_weight,2)]))        
         return pointLoads, distributedLoads
 
     def get_data():
@@ -373,7 +373,7 @@ def app():
 
     for load in st.session_state.self_weight:
         table_data.append([
-            "self weight", self_weight, "-", "-", "-", self_weight,self_weight*1.5])
+            "self weight", self_weight, "-", "-", "-", self_weight,round(self_weight*1.5,2)])
 
     # Display the Table
     st.write("### Load Data Table")
