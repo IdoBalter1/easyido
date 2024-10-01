@@ -393,6 +393,7 @@ def app():
     shearForce = np.zeros(len(X))
     bendingMoment = np.zeros(len(X))
     max_def = span/360
+    max_def_new = max_def*1000
 
     # Reaction calculation for point loads
     # Reaction calculation for point loads (PL) on cantilever
@@ -519,7 +520,7 @@ def app():
     r1 = reactions[0]  # Vertical reaction at A
     r2 = reactions[1]  # Moment reaction at A
 
-    st.write(f"Left Reaction = {r1}, Moment at fixed end = {r2}")
+    st.write(f"Left Reaction = {round(r1,2)}, Moment at fixed end = {round(r2,2)}")
 
 
     # Calculating the maximum bending moment
@@ -581,7 +582,7 @@ def app():
     else:
         None
     if material == 'Steel' or material =='Timber':
-        pdf.cell(0,10,f'Allowable Deflection = {max_def:.2f} mm',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
+        pdf.cell(0,10,f'Allowable Deflection = {max_de_newf:.2f} mm',new_x=XPos.LMARGIN, new_y=YPos.NEXT, align='L')
     else:
         None
 
@@ -620,7 +621,7 @@ def app():
     pdf.set_y(text_y)
     E = 205 * 10**9
     st.write("The effective length is " + str(round(effective_length, 2)) + " m, minimum second moment of area is " + str(round(I_min, 2)) + " cm^4, The minimum moment required " + str(round(Ma, 1)) + " kNm")
-    st.write("The Maximum Deflection is " + str(round(max_def, 2)) + " mm")
+    st.write("The Maximum Deflection is " + str(round(max_def_new, 2)) + " mm")
     beam_display, second_moment_chosen,Moment_at_effective_length, new_effective_length, choice1,z, breadth, depth = choose_beam(effective_length,moment_safety_factor)
     if second_moment_chosen is not None and Moment_at_effective_length is not None:
         if second_moment_chosen<=I_min or Moment_at_effective_length<=moment_safety_factor:
