@@ -4771,6 +4771,77 @@ UC_Reactions = {
 }
 
 RHS_Reactions = {
+        "80x40x5": {
+        "Description": "80x40x5mm RHS",
+        "Width": 0.045,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 354, "Moment": 9.27},
+            1.5: {"Reaction": 319, "Moment": 9.27},
+            2.0: {"Reaction": 265, "Moment": 9.27},
+            2.5: {"Reaction": 203, "Moment": 9.27},
+            3.0: {"Reaction": 153, "Moment": 9.24},
+            3.5: {"Reaction": 117, "Moment": 9.12},
+            4.0: {"Reaction": 92.1, "Moment": 9.01},
+            5.0: {"Reaction": 60.8, "Moment": 8.80},
+            6.0: {"Reaction": 42.9, "Moment": 8.60},
+            7.0: {"Reaction": 31.9, "Moment": 8.40},
+            8.0: {"Reaction": 24.6, "Moment": 8.21},
+            9.0: {"Reaction": 19.6, "Moment": 8.03},
+            10.0: {"Reaction": 15.9, "Moment": 7.85},
+            11.0: {"Reaction": 13.2, "Moment": 7.67},
+            12.0: {"Reaction": 11.2, "Moment": 7.49},
+            13.0: {"Reaction": 9.53, "Moment": 7.32},
+            14.0: {"Reaction": 8.24, "Moment": 7.15}
+        }
+    },
+    "80x40x6.3": {
+        "Description": "80x40x6.3mm RHS",
+        "Width": 0.045,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 431, "Moment": 11.0},
+            1.5: {"Reaction": 386, "Moment": 11.0},
+            2.0: {"Reaction": 316, "Moment": 11.0},
+            2.5: {"Reaction": 239, "Moment": 11.0},
+            3.0: {"Reaction": 179, "Moment": 11.0},
+            3.5: {"Reaction": 137, "Moment": 10.8},
+            4.0: {"Reaction": 107, "Moment": 10.7},
+            5.0: {"Reaction": 70.8, "Moment": 10.4},
+            6.0: {"Reaction": 50.0, "Moment": 10.2},
+            7.0: {"Reaction": 37.2, "Moment": 9.95},
+            8.0: {"Reaction": 28.7, "Moment": 9.72},
+            9.0: {"Reaction": 22.8, "Moment": 9.50},
+            10.0: {"Reaction": 18.6, "Moment": 9.27},
+            11.0: {"Reaction": 15.4, "Moment": 9.05},
+            12.0: {"Reaction": 13.0, "Moment": 8.84},
+            13.0: {"Reaction": 11.1, "Moment": 8.62},
+            14.0: {"Reaction": 9.58, "Moment": 8.41}
+        }
+    },
+    "80x40x8": {
+        "Description": "80x40x8mm RHS",
+        "Width": 0.045,
+        "Buckling Lengths and Values": {
+            1.0: {"Reaction": 524, "Moment": 13.0},
+            1.5: {"Reaction": 464, "Moment": 13.0},
+            2.0: {"Reaction": 372, "Moment": 13.0},
+            2.5: {"Reaction": 277, "Moment": 13.0},
+            3.0: {"Reaction": 206, "Moment": 12.8},
+            3.5: {"Reaction": 157, "Moment": 12.7},
+            4.0: {"Reaction": 123, "Moment": 12.5},
+            5.0: {"Reaction": 81.1, "Moment": 12.2},
+            6.0: {"Reaction": 57.2, "Moment": 11.9},
+            7.0: {"Reaction": 42.5, "Moment": 11.6},
+            8.0: {"Reaction": 32.8, "Moment": 11.3},
+            9.0: {"Reaction": 26.0, "Moment": 11.0},
+            10.0: {"Reaction": 21.2, "Moment": 10.8},
+            11.0: {"Reaction": 17.6, "Moment": 10.5},
+            12.0: {"Reaction": 14.8, "Moment": 10.2},
+            13.0: {"Reaction": 12.7, "Moment": 9.96},
+            14.0: {"Reaction": 10.9, "Moment": 9.70}
+        }
+    },
+
+
         "90x50x5": {
         "Description": "90x50x5mm RHS",
         "Width": 0.045,
